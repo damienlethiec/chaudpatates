@@ -7,4 +7,5 @@ class Location < ApplicationRecord
 	validates :photo, presence: true
 	validates :address, presence: true, length: { in: ADDRESSLENGTH }
 
+	has_attachment :photo
 end

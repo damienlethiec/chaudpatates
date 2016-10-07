@@ -6,5 +6,5 @@ class City < ApplicationRecord
   alias_attribute :user, :coach
 
   validates :name, presence: true
-  validates :coach_id, presence: true
+  validates :user_id, presence: true
 end

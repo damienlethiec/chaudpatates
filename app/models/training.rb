@@ -5,4 +5,6 @@ class Training < ApplicationRecord
 
   validates :city_id, presence: true
   validates :date, presence: true
+
+  has_attachment :photo
 end
