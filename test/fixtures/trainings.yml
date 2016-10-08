@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  public_description: MyText
+  private_description: MyText
+  date: 2016-10-07 17:34:23
+  city: one
+  location: one
+
+two:
+  public_description: MyText
+  private_description: MyText
+  date: 2016-10-07 17:34:23
+  city: two
+  location: two

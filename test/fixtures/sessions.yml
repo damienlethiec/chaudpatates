@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 1
+  time_of_day: 2016-10-07 17:20:40
+  city: one
+
+two:
+  day: 1
+  time_of_day: 2016-10-07 17:20:40
+  city: two
