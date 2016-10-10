@@ -7,4 +7,8 @@ class Training < ApplicationRecord
   validates :date, presence: true
 
   has_attachment :photo
+
+  def to_s
+    "#{self.date}, #{self.city.name}"
+  end
 end
