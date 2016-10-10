@@ -1,0 +1,4 @@
+fr:
+  controllers:
+    application:
+      user_not_authorized: "Vous ne pouvez pas accéder à cette page."
