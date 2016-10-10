@@ -1,6 +1,6 @@
 ActiveAdmin.register Training do
 	menu priority: 5
-	permit_params :public_description, :private_description, :city_id, :location_id
+	permit_params :public_description, :private_description, :city_id, :location_id, :date
   actions :all, except: [:new, :create]
 
   filter :city
