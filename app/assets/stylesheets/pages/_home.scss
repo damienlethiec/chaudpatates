@@ -1,4 +1,14 @@
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
+.paragraph-home {
+	padding: 30px 0;
+}
+.title-paragraph {
+  letter-spacing: 4px;
+  color: $black;
+  font-size: 45px;
+  margin-top: 3vh;
+}
+hr {
+	color: $gray;
+	background-color: $gray;
+	border-color: $gray;
+}
