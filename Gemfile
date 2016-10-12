@@ -15,6 +15,7 @@ gem "coffee-rails"
 gem "pundit"
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'omniauth-linkedin'
 
 gem 'sass-rails'
 gem 'jquery-rails'

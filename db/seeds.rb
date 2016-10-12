@@ -30,13 +30,13 @@ paris = City.create!(
 	)
 
 tuesday_session = Session.create!(
-	day: 2,
+	day: 1,
 	time_of_day: Time.new(2016, 10, 31, 19, 0, 0, "+02:00").strftime("%H:%M:%S"),
 	city_id: paris.id
 	)
 
 friday_session = Session.create!(
-	day: 5,
+	day: 4,
 	time_of_day: Time.new(2016, 10, 31, 19, 0, 0, "+02:00").strftime("%H:%M:%S"),
 	city_id: paris.id
 	)
