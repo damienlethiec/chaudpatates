@@ -26,17 +26,18 @@ kenenisa = User.create!(
 
 paris = City.create!(
 	name: "Paris",
-	user_id: kenenisa.id
+	user_id: kenenisa.id,
+	photo: Cloudinary::Uploader.upload("https://a4.odistatic.net/images/landingpages/vacation/640x480/paris_640x480.jpg")
 	)
 
 tuesday_session = Session.create!(
-	day: 2,
+	day: 1,
 	time_of_day: Time.new(2016, 10, 31, 19, 0, 0, "+02:00").strftime("%H:%M:%S"),
 	city_id: paris.id
 	)
 
 friday_session = Session.create!(
-	day: 5,
+	day: 4,
 	time_of_day: Time.new(2016, 10, 31, 19, 0, 0, "+02:00").strftime("%H:%M:%S"),
 	city_id: paris.id
 	)

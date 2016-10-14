@@ -17,7 +17,7 @@
             <%= link_to(cl_image_tag current_user.photo.path, height: 40, width: 40, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown") %>
           <% elsif  current_user.linkedin_picture_url %>
             <%= link_to(cl_image_tag current_user.linkedin_picture_url.path, height: 40, width: 40, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown") %>
-          <% end %>
+          <% else %>
             <%= image_tag "http://placehold.it/30x30", class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
