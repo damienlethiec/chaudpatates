@@ -1,1 +1,29 @@
-// Your footer style
+.footer {
+  background-color: $gray;
+  height: 120px;
+  letter-spacing: 2px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  div {
+  	margin: 5px;
+  }
+  h5 {
+  	font-size: 20px;
+  }
+}
+
+.footer-content {
+  width: 30vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+  	color: $black;
+  	&:hover {
+  		color: white
+  	}
+  }
+}

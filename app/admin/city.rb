@@ -1,6 +1,6 @@
 ActiveAdmin.register City do
 	menu priority: 2
-	permit_params :name, :user_id
+	permit_params :name, :user_id, :photo
 
   filter :name
 	filter :user, label: 'COACH', collection: proc { User.where(is_coach: true) }
@@ -12,6 +12,7 @@ ActiveAdmin.register City do
     inputs do
       input :name
       input :user, label: 'City coach', collection: User.where(is_coach: true)
+      input :photo, :as => :file
     end
     actions
   end
@@ -21,6 +22,9 @@ ActiveAdmin.register City do
     column :id
     column :name
     column :coach
+    column :photo do |event|
+      link_to(cl_image_tag event.photo.path, height: 50)
+    end
     column :created_at
     actions
   end

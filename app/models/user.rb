@@ -12,6 +12,8 @@ class User < ApplicationRecord
   validates :is_coach, inclusion: { in: [true,false] }
   validates :tickets_nb, presence: true, numericality: { only_integer: true }
 
+  has_attachment :photo
+  
   def to_s
     self.email
   end
