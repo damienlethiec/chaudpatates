@@ -1,0 +1,43 @@
+.wrapper-gray {
+  background-color:#EFEFEF;
+  min-height: calc(100vh - 60px);
+}
+
+.form-card {
+  background-color: white;
+  padding: 20px 40px 40px;
+  box-shadow: 2px 2px #CCCCCC;
+  margin-top: 30px;;
+  margin-bottom:30px
+}
+
+.form-card h2 {
+  color: $blue;
+  margin-top:10px;
+}
+
+.form-card label {
+  font-weight:normal;
+  color: #B3B3B3;
+  font-size:14px;
+  letter-spacing: 1px;
+}
+
+.card-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.card-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161010130426) do
+ActiveRecord::Schema.define(version: 20161012131804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,14 @@ ActiveRecord::Schema.define(version: 20161010130426) do
     t.integer  "tickets_nb",             default: 1
     t.boolean  "is_coach",               default: false
     t.boolean  "admin",                  default: false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "headline"
+    t.string   "linkedin_summary"
+    t.string   "linkedin_picture_url"
+    t.string   "linkedin_profile"
+    t.string   "token"
+    t.datetime "token_expiry"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
