@@ -33,7 +33,6 @@ class User < ApplicationRecord
     return user
   end
 
-
   def to_s
     self.email
   end

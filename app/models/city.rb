@@ -7,5 +7,8 @@ class City < ApplicationRecord
   alias_attribute :coach=, :user=
 
   validates :name, presence: true
+  validates :photo, presence: true
   validates :user_id, presence: true
+
+  has_attachment :photo
 end

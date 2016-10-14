@@ -1,0 +1,30 @@
+.banner {
+  background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%),
+                    url('background.jpg');
+  background-size: cover;
+  color: $black;
+  height: calc(80vh - 60px);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.04),0 1px 0 0 rgba(0,0,0,0.02);
+  h1 {
+    display: inline-block;
+    font-size: 100px;
+    color: white;
+    box-shadow: 0px -30px $green inset;
+    text-shadow: none;
+  }
+  h3 {
+    letter-spacing: 4px;
+    color: white;
+    font-size: 45px;
+    margin-top: 3vh;
+    font-weight:lighter;
+    font-style:italic;
+  }
+}
+.banner-content {
+  width: 80vw;
+}
