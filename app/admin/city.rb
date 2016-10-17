@@ -11,7 +11,7 @@ ActiveAdmin.register City do
   	f.semantic_errors *f.object.errors.keys
     inputs do
       input :name
-      input :user, label: 'City coach', collection: User.where(is_coach: true)
+      input :user, label: 'Coach', collection: User.where(is_coach: true)
       input :photo, :as => :file
     end
     actions
