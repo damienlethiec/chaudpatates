@@ -1,5 +1,58 @@
 fr:
   activerecord:
+    models:
+      user:
+        one: Utilisateur
+        other: Utilisateurs
+      city:
+        one: "Ville"
+        other: "Villes"
+      location:
+        one: "Lieu de départ"
+        other: "Lieux de départ"
+      session:
+        one: "Session"
+        other: "Sessions"
+      training:
+        one: "Entrainement"
+        other: "Entrainement"
+      booking:
+        one: "Réservation"
+        other: "Réservations"
+    attributes:
+      user:
+        first_name: "Prénom"
+        last_name: "Nom de famille"
+        tickets_nb: "Nombre de tickets"
+        is_coach: 'Coach?'
+        city: "Ville"
+        created_at: "Date de création"
+        admin: "Administrateur?"
+        password: "Mot de passe"
+        password_confirmation: "Confirmation du mot de passe"
+      city:
+        name: "Nom"
+        created_at: "Date de création"
+        trainings: "Entrainements"
+      location:
+        name: "Nom"
+        address: "Adresse"
+        created_at: "Date de création"
+      session:
+        day: "Jour"
+        time_of_day: "Heure"
+        created_at: "Date de création"
+        city: "Ville"
+      training:
+        location: "Lieu de départ"
+        public_description: "Description publique"
+        private_description: "Description privée"
+        created_at: "Date de création"
+        city: "Ville"
+      booking:
+        user: "Utilisateur"
+        training: "Entrainement"
+        created_at: "Date de création"
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'
@@ -147,9 +200,9 @@ fr:
     select:
       prompt: Veuillez sélectionner
     submit:
-      create: Créer un(e) %{model}
-      submit: Enregistrer ce(tte) %{model}
-      update: Modifier ce(tte) %{model}
+      create: Créer un %{model}
+      submit: Enregistrer cet %{model}
+      update: Modifier cet %{model}
   number:
     currency:
       format:

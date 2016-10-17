@@ -1,5 +1,5 @@
 .wrapper-gray {
-  background-color:#EFEFEF;
+  background-color: $gray;
   min-height: calc(100vh - 60px);
 }
 
@@ -12,7 +12,7 @@
 }
 
 .form-card h2 {
-  color: $blue;
+  color: $green;
   margin-top:10px;
 }
 .form-control {
@@ -21,7 +21,7 @@
 
 .form-card label {
   font-weight:normal;
-  color: #B3B3B3;
+  color: $black;
   font-size:14px;
   letter-spacing: 1px;
 }
@@ -43,4 +43,9 @@
   position: absolute;
   right: 10px;
   top: 10px;
+}
+
+.buttons-form {
+  display: flex;
+  justify-content: space-between;
 }
