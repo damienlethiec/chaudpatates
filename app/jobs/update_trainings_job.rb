@@ -4,10 +4,11 @@ class UpdateTrainingsJob < ApplicationJob
 	DAYS_OF_WEEK = { Monday: 0, Tuesday: 1, Wednesday: 2, Thursday: 3, Friday: 4, Saturday: 5, Sunday: 6 }
 
   def perform(session, city)
-  	trainings = Training.where(session: session)
+  	trainings = Training.session_is(session)
   	time = session.time_of_day
+  	new_day = session.day.to_sym
   	trainings.each do |training|
-  		day = update_training_day(training)
+  		day = update_training_day(training, new_day)
   		set_training_date(training, time, day)
   		training.save!
   	end
@@ -15,8 +16,8 @@ class UpdateTrainingsJob < ApplicationJob
 
   private
 
-  def update_training_day(training)
-  	training.date.next_week.advance(days: DAYS_OF_WEEK[session.day.to_sym])
+  def update_training_day(training, new_day)
+  	training.date.next_week.advance(days: DAYS_OF_WEEK[new_day])
   end
 
   def set_training_date(training, time, day)

@@ -7,6 +7,8 @@ class Training < ApplicationRecord
   validates :city_id, presence: true
   validates :date, presence: true
   validates :session, presence: true
+
+  scope :session_is, -> (session) { where(session: session) }
   # validate :date_has_to_be_in_session
 
   has_attachment :photo
