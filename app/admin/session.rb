@@ -6,6 +6,12 @@ ActiveAdmin.register Session do
   filter :day, as: :select
   filter :created_at
 
+  controller do
+    def scoped_collection
+      Session.includes(:city)   # specify grandchild model with hash!
+    end
+  end
+
   show do
     attributes_table do
       row :id
@@ -28,6 +34,4 @@ ActiveAdmin.register Session do
     column :created_at
     actions
   end
-
-
 end
