@@ -30,29 +30,35 @@ fr:
         admin: "Administrateur?"
         password: "Mot de passe"
         password_confirmation: "Confirmation du mot de passe"
+        updated_at: "Date de mise à jour"
       city:
         name: "Nom"
         created_at: "Date de création"
         trainings: "Entrainements"
+        updated_at: "Date de mise à jour"
       location:
         name: "Nom"
         address: "Adresse"
         created_at: "Date de création"
+        updated_at: "Date de mise à jour"
       session:
         day: "Jour"
         time_of_day: "Heure"
         created_at: "Date de création"
         city: "Ville"
+        updated_at: "Date de mise à jour"
       training:
         location: "Lieu de départ"
         public_description: "Description publique"
         private_description: "Description privée"
         created_at: "Date de création"
         city: "Ville"
+        updated_at: "Date de mise à jour"
       booking:
         user: "Utilisateur"
         training: "Entrainement"
         created_at: "Date de création"
+        updated_at: "Date de mise à jour"
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'

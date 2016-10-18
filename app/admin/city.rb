@@ -7,6 +7,12 @@ ActiveAdmin.register City do
   filter :trainings
   filter :created_at
 
+  controller do
+    def scoped_collection
+      City.includes({ :trainings => :city })   # specify grandchild model with hash!
+    end
+  end
+
   form do |f|
   	f.semantic_errors *f.object.errors.keys
     inputs do
