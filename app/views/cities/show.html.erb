@@ -8,9 +8,7 @@
 		</div>
 	</div>
 </div>
-<div class="container spaced">
-	<div class="row">
-		<div class="col-md-10 col-sm-offset-1">
+<div class="paragraph-show-city">
 			<div class="text-center">
 				<a class="btn-success btn btn-lg spaced">S’inscrire à une session</a>
 				<div class="flex-content space-around">
@@ -19,7 +17,7 @@
 						<h4><%= l(@next_training.date, format: '%A %d %B, à %Hh%M').capitalize %></h4>
 					</div>
 					<div>
-						<h3 class="no-margin-bottom green">Votre coach :</h3>
+						<h3 class="coach-title green">Votre coach :</h3>
 						<div class="flex-content align-items">
 							<% if @city.coach.photo %>
 							<%= cl_image_tag @city.coach.photo.path, class: "avatar-big" %>
@@ -55,6 +53,5 @@
 				</div>
 				<% end %>
 			</div>
-		</div>
-	</div>
-</div>
+			</div>
+
