@@ -1,0 +1,16 @@
+<div class="modal fade" id="IndexTrainings" tabindex="-1" role="dialog" aria-labelledby="IndexTrainingsLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title text-center green" id="IndexTrainingslLabel">Ravi de vous voir parmi nous !</h2>
+        <h3 class="modal-title text-center">A quelle date souhaitez-vous vous inscrire ?</h3>
+      </div>
+      <div class="modal-body flex-content space-around">
+        <% @available_trainings.each do |training| %>
+          <%= link_to l(training.date, format: '%A %d %B, à %Hh%M').capitalize, bookings_path(training: training, city: @city), method: :post, class: "btn-success btn custom-bootstap-btn text-center mi-spaced" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
