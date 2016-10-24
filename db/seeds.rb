@@ -11,9 +11,10 @@ User.destroy_all
 
 usain = User.create!(
   email: "usain@mail.com",
-  password: "usainb",
+  password: "usainbolt",
   first_name: "Usain",
-  last_name: "Bolt"
+  last_name: "Bolt",
+  photo: Cloudinary::Uploader.upload("http://www.buzzdefou.com/wp-content/uploads/2016/08/usain_bolt-1250x750.jpg")
   )
 
 kenenisa = User.create!(
@@ -21,7 +22,8 @@ kenenisa = User.create!(
   password: "kenenisa",
   first_name: "Kenenisa",
   last_name: "Bekele",
-  is_coach: true
+  is_coach: true,
+  photo: Cloudinary::Uploader.upload("https://upload.wikimedia.org/wikipedia/commons/4/4a/Kenenisa_Bekele_Berlin_2009.jpg")
   )
 
 paris = City.create!(
@@ -46,16 +48,4 @@ le_wagon = Location.create!(
 	name: "Le Wagon",
 	address: "16 Villa Gaudelet, 75011 Paris",
 	photo: Cloudinary::Uploader.upload("http://lewagon.github.io/ui-components/images/lewagon.png")
-	)
-
-next_month_tuesday = Training.create!(
-	date: DateTime.new(2016,11,1,19),
-	city_id: paris.id,
-	location_id: le_wagon.id
-	)
-
-next_month_friday = Training.create!(
-	date: DateTime.new(2016,11,4,19),
-	city_id: paris.id,
-	location_id: le_wagon.id
 	)

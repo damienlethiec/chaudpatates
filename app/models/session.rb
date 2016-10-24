@@ -8,8 +8,10 @@ class Session < ApplicationRecord
   validates :time_of_day, presence: true
   validates :city_id, presence: true
 
+  scope :city, -> (city) { where( city: city) }
+
   after_commit :create_trainings, on: :create
-	after_commit :update_trainings, on: :update
+  after_commit :update_trainings, on: :update
 
   private
 
