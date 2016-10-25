@@ -1,0 +1,67 @@
+<div class="banner-small" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%), url(<%= cl_image_path @city.photo.path %>); background-size: cover; background-position: center">
+	<div class="banner-content-small">
+		<h2><%= @city.name.capitalize %></h2>
+		<div class="flex-content flex-center">
+			<% @city.sessions.each do |session| %>
+			<h4><%= "#{t(:"date.day_names")[wday(session.day)].capitalize}@#{session.time_of_day.strftime('%Hh%M')}" %></h4>
+			<% end %>
+		</div>
+	</div>
+</div>
+<div class="spaced">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="text-center">
+					<a class="btn-success btn btn-lg spaced" data-toggle="modal" data-target="#IndexTrainings">S’inscrire à une session</a>
+					<div class="flex-content space-around">
+						<div>
+							<h3 class="spaced green">Prochain départ :</h3>
+							<h4><%= l(@next_training.date, format: '%A %d %B, à %Hh%M').capitalize %></h4>
+						</div>
+						<div>
+							<h3 class="coach-title green">Votre coach :</h3>
+							<div class="flex-content align-items">
+								<% if @city.coach.photo %>
+								<%= cl_image_tag @city.coach.photo.path, class: "avatar-big" %>
+								<% end %>
+								<h4 class="spaced-left"><%= @city.coach.full_name %></h4>
+							</div>
+						</div>
+					</div>
+					<% if @next_training.location && @next_training.public_description %>
+					<div class="flex-content flex-center align-items spaced">
+						<%= cl_image_tag @next_training.location.photo.path, class: "avatar-huge" %>
+						<div class="col-sm-6 spaced">
+							<h4><%= @next_training.location.name %></h4>
+							<h5><%= @next_training.location.address %></h5>
+							<p><%= @next_training.public_description %></p>
+						</div>
+					</div>
+					<% end %>
+					<% unless @city_members.empty? %>
+						<div class="spaced spaced-top">
+							<h3 class="green">Les membres de <%= @city.name %></h3>
+							<div class="flex-content flex-center">
+								<% @city_members.each do |city_member| %>
+									<div class="spaced-left spaced-right">
+										<% if city_member.photo %>
+											<%= cl_image_tag city_member.photo.path, class: "avatar"%>
+											<p><%= city_member.full_name %></p>
+										<% elsif city_member.linkedin_picture_url %>
+											<%= image_tag city_member.linkedin_picture_url, class: "avatar-big"%>
+											<p><%= city_member.first_name %></p>
+										<% end %>
+									</div>
+								<% end %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%= render "/trainings/index" %>
+

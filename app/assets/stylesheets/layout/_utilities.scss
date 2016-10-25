@@ -6,20 +6,59 @@
 
 // Paddings
 .padded {
-  padding-top: 5em;
-  padding-bottom: 5em;
+	padding-top: 5em;
+	padding-bottom: 5em;
 }
 
 // Backgrounds
 .bg-black {
-  background: #4a4a4a;
+	background: #4a4a4a;
 }
 .bg-grey {
-  background: #aeaeae;
+	background: #aeaeae;
 }
 .bg-blue {
-  background: #00a3e1;
+	background: #00a3e1;
 }
 .bg-dark-blue {
-  background: #3b5998;
+	background: #3b5998;
+}
+.background-white {
+	background-color: white
+}
+.spaced {
+	margin: 30px;
+}
+.spaced-left {
+	margin-left: 10px;
+}
+.spaced-right {
+	margin-right: 10px;
+}
+.spaced-top {
+	margin-top: 50px;
+}
+
+.green {
+	color: $green;
+}
+
+.flex-content {
+	display: flex;
+	flex-wrap: wrap;
+}
+.flex-center {
+	justify-content: center;
+}
+.space-between {
+	justify-content: space-between;
+}
+.space-around {
+	justify-content: space-around;
+}
+.align-items {
+	align-items: center;
+}
+.no-margin-bottom {
+	margin-bottom: 0;
 }

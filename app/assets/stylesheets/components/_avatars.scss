@@ -1,11 +1,25 @@
 .avatar {
   width: 30px;
   border-radius: 50%;
+  background-position: center;
 }
 .avatar-large {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  background-position: center;
+}
+.avatar-big {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-position: center;
+}
+.avatar-huge {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-position: center;
 }
 .avatar-bordered {
   width: 30px;
