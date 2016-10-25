@@ -8,4 +8,6 @@ class Booking < ApplicationRecord
 	scope :past, -> { where("start_date < ?", Date.today) }
 	scope :upcoming, -> { where("start_date >= ?", Date.today) }
 	scope :user_is, -> (user) { where(user: user) }
+	scope :training, -> (training) { where( training: training) }
+	
 end

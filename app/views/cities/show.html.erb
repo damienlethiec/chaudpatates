@@ -13,12 +13,8 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="text-center">
-					<a class="btn-success btn btn-lg spaced" data-toggle="modal" data-target="#IndexTrainings">S’inscrire à une session</a>
+					<a class="btn-success btn btn-lg spaced" data-toggle="modal" data-target="#IndexTrainings">S’inscrire à un entraînement</a>
 					<div class="flex-content space-around">
-						<div>
-							<h3 class="spaced green">Prochain départ :</h3>
-							<h4><%= l(@next_training.date, format: '%A %d %B, à %Hh%M').capitalize %></h4>
-						</div>
 						<div>
 							<h3 class="coach-title green">Votre coach :</h3>
 							<div class="flex-content align-items">
@@ -28,16 +24,23 @@
 								<h4 class="spaced-left"><%= @city.coach.full_name %></h4>
 							</div>
 						</div>
+						<div>
+							<h3 class="spaced green">Prochain départ :</h3>
+							<h4><%= l(@next_training.date, format: '%A %d %B, à %Hh%M').capitalize %></h4>
+						</div>
 					</div>
 					<% if @next_training.location && @next_training.public_description %>
 					<div class="flex-content flex-center align-items spaced">
 						<%= cl_image_tag @next_training.location.photo.path, class: "avatar-huge" %>
-						<div class="col-sm-6 spaced">
+						<div class="col-sm-6">
 							<h4><%= @next_training.location.name %></h4>
 							<h5><%= @next_training.location.address %></h5>
-							<p><%= @next_training.public_description %></p>
+							<p class="justified"><%= @next_training.public_description %></p>
 						</div>
 					</div>
+					<% unless @next_training_booked %>
+						<%= link_to "S'inscrire au prochain entraînement<br />le #{l(@next_training.date, format: '%A %d %B, à %Hh%M')}".html_safe,bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn btn-lg" %>
+					<% end %>
 					<% end %>
 					<% unless @city_members.empty? %>
 						<div class="spaced spaced-top">

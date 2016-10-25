@@ -1,5 +1,5 @@
 class Location < ApplicationRecord
-	has_many :trainings, dependent: :destroy
+	has_many :trainings
 
 	ADDRESSLENGTH = 5..150
 
