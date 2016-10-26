@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_filter :set_ticket_for_order
+  before_filter :set_tickets_package_for_order
   include Pundit
 
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def set_ticket_for_order
-    @ticket = Ticket.first
+  def set_tickets_package_for_order
+    @tickets_package = TicketsPackage.first
   end
 
   def skip_pundit?

@@ -11,7 +11,7 @@ ActiveAdmin.register Training do
 
   controller do
     def scoped_collection
-      Training.includes(:location)   # specify grandchild model with hash!
+      Training.includes(:location)  # specify grandchild model with hash!
     end
   end
 
