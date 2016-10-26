@@ -19,6 +19,9 @@ fr:
       booking:
         one: "Réservation"
         other: "Réservations"
+      tickets_package:
+        one: "Lot de tickets"
+        other: "Lots de tickets"
     attributes:
       user:
         first_name: "Prénom"
@@ -35,6 +38,13 @@ fr:
         name: "Nom"
         created_at: "Date de création"
         trainings: "Entrainements"
+        updated_at: "Date de mise à jour"
+      tickets_package:
+        sku: "Référence"
+        price_cents: "Prix en centimes"
+        price: "Prix (en euros)"
+        tickets_nb: "Nombre de tickets dans le lot"
+        created_at: "Date de création"
         updated_at: "Date de mise à jour"
       location:
         name: "Nom"

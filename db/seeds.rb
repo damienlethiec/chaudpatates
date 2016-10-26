@@ -10,7 +10,7 @@ Order.destroy_all
 Location.destroy_all
 City.destroy_all
 User.destroy_all
-Ticket.destroy_all
+TicketsPackage.destroy_all
 
 usain = User.create!(
   email: "usain@mail.com",
@@ -53,7 +53,8 @@ le_wagon = Location.create!(
 	photo: Cloudinary::Uploader.upload("http://lewagon.github.io/ui-components/images/lewagon.png")
 	)
 
-ticket = Ticket.create!(
-	sku: "ticket-training",
-	price: 7
+ticket_by_10 = TicketsPackage.create!(
+	sku: "ticket-training-by-10",
+	price: 70,
+	tickets_nb: 10
 	)
