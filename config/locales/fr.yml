@@ -15,7 +15,7 @@ fr:
         other: "Sessions"
       training:
         one: "Entrainement"
-        other: "Entrainement"
+        other: "Entrainements"
       booking:
         one: "Réservation"
         other: "Réservations"

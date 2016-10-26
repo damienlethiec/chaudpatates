@@ -7,8 +7,10 @@
         <h3 class="modal-title text-center">A quelle date souhaitez-vous vous inscrire ?</h3>
       </div>
       <div class="modal-body flex-content space-around">
-        <% @available_trainings.each do |training| %>
-          <%= link_to l(training.date, format: '%A %d %B, à %Hh%M').capitalize, bookings_path(training: training, city: @city), method: :post, class: "btn-success btn custom-bootstap-btn text-center mi-spaced" %>
+        <% if current_user %>
+          <% @available_trainings.each do |training| %>
+            <%= link_to l(training.date, format: '%A %d %B, à %Hh%M').capitalize, bookings_path(training: training, city: @city), method: :post, class: "btn-success btn custom-bootstap-btn text-center mi-spaced" %>
+          <% end %>
         <% end %>
       </div>
     </div>

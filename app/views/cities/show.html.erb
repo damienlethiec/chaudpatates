@@ -13,7 +13,11 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="text-center">
-					<a class="btn-success btn btn-lg spaced" data-toggle="modal" data-target="#IndexTrainings">S’inscrire à un entraînement</a>
+					<% if current_user %>
+						<a class="btn-success btn btn-lg spaced" data-toggle="modal" data-target="#IndexTrainings">S’inscrire à un entraînement</a>
+					<% else %>
+						<%= link_to "S'inscrire à un entrainement", bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn btn-lg spaced" %>
+					<% end %>
 					<div class="flex-content space-around">
 						<div>
 							<h3 class="coach-title green">Votre coach :</h3>
@@ -39,7 +43,7 @@
 						</div>
 					</div>
 					<% unless @next_training_booked %>
-						<%= link_to "S'inscrire au prochain entraînement<br />le #{l(@next_training.date, format: '%A %d %B, à %Hh%M')}".html_safe,bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn btn-lg" %>
+						<%= link_to "S'inscrire au prochain entraînement<br />le #{l(@next_training.date, format: '%A %d %B, à %Hh%M')}".html_safe, bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn btn-lg" %>
 					<% end %>
 					<% end %>
 					<% unless @city_members.empty? %>

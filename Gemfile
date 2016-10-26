@@ -20,6 +20,8 @@ gem "bullet", :group => "development"
 gem 'sidekiq'
 gem 'sidekiq-failures'
 gem 'sinatra', ">= 2.0.0.beta2", require: false
+gem 'money-rails'
+gem 'stripe'
 
 gem 'sass-rails'
 gem 'jquery-rails'

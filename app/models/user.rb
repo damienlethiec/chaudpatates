@@ -6,9 +6,11 @@ class User < ApplicationRecord
 
   has_one :city
   has_many :bookings, dependent: :destroy
+  has_many :order
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :email, presence: true
   validates :is_coach, inclusion: { in: [true,false] }
   validates :tickets_nb, presence: true, numericality: { only_integer: true }
 
