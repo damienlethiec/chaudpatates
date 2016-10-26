@@ -5,9 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Training.destroy_all
+Order.destroy_all
 Location.destroy_all
 City.destroy_all
 User.destroy_all
+Ticket.destroy_all
 
 usain = User.create!(
   email: "usain@mail.com",
@@ -48,4 +51,9 @@ le_wagon = Location.create!(
 	name: "Le Wagon",
 	address: "16 Villa Gaudelet, 75011 Paris",
 	photo: Cloudinary::Uploader.upload("http://lewagon.github.io/ui-components/images/lewagon.png")
+	)
+
+ticket = Ticket.create!(
+	sku: "ticket-training",
+	price: 7
 	)

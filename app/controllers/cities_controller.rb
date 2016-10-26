@@ -13,11 +13,15 @@ class CitiesController < ApplicationController
 	end
 
 	def next_training_booked?
-		@next_training_booked = @next_training.booked_by?(current_user)
+		if current_user
+			@next_training_booked = @next_training.booked_by?(current_user)
+		end
 	end
 
 	def set_available_trainings
-		@available_trainings = @city.trainings_not_booked_by(current_user)
+		if current_user
+			@available_trainings = @city.trainings_not_booked_by(current_user)
+		end
 	end
 
 	def set_next_training

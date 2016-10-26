@@ -12,5 +12,8 @@ Rails.application.routes.draw do
 
   resources :cities, only: [:show]
   resources :bookings, only: [:create]
+  resources :orders, only: [:create] do
+    resources :payments, only: [:create]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
