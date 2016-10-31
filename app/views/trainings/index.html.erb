@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="listing text-center">
+        <h2>Vos entraînements à venir</h2>
+        <% @trainings.upcoming.each do |training| %>
+          <%= render 'trainings/show', training: training %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

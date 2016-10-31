@@ -5,8 +5,8 @@ class Booking < ApplicationRecord
 	validates :user_id, presence: true
 	validates :training_id, presence: true
 
-	scope :past, -> { where("start_date < ?", Date.today) }
-	scope :upcoming, -> { where("start_date >= ?", Date.today) }
+	scope :past, -> { joins(:training).merge(Training.past.order(:date)) }
+	scope :upcoming, -> { joins(:training).merge(Training.upcoming.order(:date)) }
 	scope :user_is, -> (user) { where(user: user) }
 	scope :training, -> (training) { where( training: training) }
 	

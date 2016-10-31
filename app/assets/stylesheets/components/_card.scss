@@ -17,3 +17,76 @@
 .text-deco-none a:hover { 
     text-decoration:none; 
 }
+
+.list-card {
+  border: 1px solid #e5e5e5;
+  border-bottom: none;
+  background: #fff;
+  padding: 30px;
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  align-items: center;
+  &:last-child {
+    margin: 0;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  & > * {
+    margin: 0 2% 0 0;
+  }
+  a {
+    margin-right: 15px;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  p {
+    padding: 0;
+    margin: 0;
+    & > a {
+    color: $text-color;
+    font-weight: bold;
+    }
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    .fa {
+      width: 15px;
+    }
+  }
+  .event-location {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 24%;
+  }
+  .event-date {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 28%;
+  }
+  .people-event {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 21%;
+  }
+  .booking-delete {
+    position: absolute;
+    right: 0px;
+  }
+  }
+  .event-coach {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 21%;
+    img {
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+  }

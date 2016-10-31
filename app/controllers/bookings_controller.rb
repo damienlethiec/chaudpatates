@@ -1,5 +1,12 @@
 class BookingsController < ApplicationController
 
+	before_action :set_booking, only: :destroy
+
+	def index
+		@bookings = policy_scope(Booking).includes( { training: [:location, :city] } )
+    authorize @bookings
+  end
+
 	def create
 		@booking = Booking.new
 		@booking.training = Training.find(params[:training])
@@ -16,5 +23,22 @@ class BookingsController < ApplicationController
 			redirect_to city_path(params[:city])
 		end
 	end
+
+	def destroy
+		if @booking.destroy
+			current_user.tickets_nb += 1
+      flash[:notice] = "Votre inscription a bien été annulé"
+      redirect_to(bookings_path)
+    else
+      (render :index)
+    end
+	end
+
+	private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
 	
 end

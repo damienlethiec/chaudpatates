@@ -1,0 +1,24 @@
+<div class="modal fade" id="UpdateTraining" tabindex="-1" role="dialog" aria-labelledby="UpdateTrainingLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title text-center green" id="UpdateTraininglLabel">Merci d'indiquer le lieu et de donner une description publique et privée à l'entrainement</h2>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for training do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :date %>
+            <%= f.input :location, required: true %>
+            <%= f.input :public_description, required: true %>
+            <%= f.input :private_description, required: true %>
+            <%= f.button :submit, "Confirmer", class: "btn-validate btn-success btn" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}""></script>
+<% end %>

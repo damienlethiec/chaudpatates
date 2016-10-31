@@ -9,26 +9,32 @@
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
-      
-<!--       <div class="navbar-wagon-item"> -->
-      <h5><%= "Tickets disponibles : #{current_user.tickets_nb}" %></h5>
-<!--       </div> -->
-
-      <div class="navbar-wagon-item">
-        <%= form_tag orders_path do %>
-          <%= hidden_field_tag 'tickets_package_id', @tickets_package.id %>
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-image="http://res.cloudinary.com/ind-pendant/image/upload/v1477414806/logo_jieaz6.jpg"
-            data-locale="auto"
-            data-email="<%= current_user.email %>"
-            data-label="Racheter des tickets"
-            data-name="<%= @tickets_package.tickets_nb %> tickets Chaud Patate"
-            data-description="Pour <%= @tickets_package.tickets_nb %> entraînements avec la team !"
-            data-amount="<%= @tickets_package.price_cents %>"
-            data-currency="<%= @tickets_package.price.currency %>"></script>
+      <% if current_user.is_coach %>
+        <%= link_to trainings_path, class: "navbar-wagon-link" do %>
+          <i class="fa fa-calendar" aria-hidden="true"></i> Gérer ma ville
         <% end %>
-      </div>
+      <% else %>
+<!--       <div class="navbar-wagon-item"> -->
+        <h5><%= "Tickets disponibles : #{current_user.tickets_nb}" %></h5>
+  <!--       </div> -->
+
+        <div class="navbar-wagon-item">
+          <%= form_tag orders_path do %>
+            <%= hidden_field_tag 'tickets_package_id', @tickets_package.id %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-image="http://res.cloudinary.com/ind-pendant/image/upload/v1477414806/logo_jieaz6.jpg"
+              data-locale="auto"
+              data-email="<%= current_user.email %>"
+              data-label="Racheter des tickets"
+              data-name="<%= @tickets_package.tickets_nb %> tickets Chaud Patate"
+              data-description="Pour <%= @tickets_package.tickets_nb %> entraînements avec la team !"
+              data-amount="<%= @tickets_package.price_cents %>"
+              data-currency="<%= @tickets_package.price.currency %>">
+            </script>
+          <% end %>
+        </div>
+      <% end %>
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
@@ -42,13 +48,15 @@
           <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Mon profil") %>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Se déconnecter") %>
               <% end %>
             </li>
             <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Se déconnecter") %>
+              <% unless current_user.is_coach %>
+                <%= link_to bookings_path do %>
+                  <i class="fa fa-calendar" aria-hidden="true"></i> Mes entraînements à venir
+                <% end %>
               <% end %>
             </li>
           </ul>
