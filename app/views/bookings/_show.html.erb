@@ -2,7 +2,7 @@
   <div class="event-date">
     <p><%= l(booking.training.date, format: '%A %d %B, à %Hh%M').capitalize %></p>
   </div>
-  <div class="booking-coach hidden-xs hidden-sm">
+  <div class="event-coach hidden-xs hidden-sm">
     <% if booking.training.city.coach.photo %>
       <%= cl_image_tag booking.training.city.coach.photo.path, class: "avatar-large" %>
     <% elsif  booking.training.city.coach.linkedin_picture_url %>
@@ -13,7 +13,7 @@
     <p>Votre Coach :</br><%= booking.training.city.coach.full_name %></p>
     </ul>
   </div>
-  <div class="booking-location">
+  <div class="event-location">
     <% if booking.training.location %>
       <div class="hidden-xs"><%= cl_image_tag booking.training.location.photo.path, class: "avatar-big" %></div>
       <p><%= booking.training.location.name %></br><%= booking.training.location.address %></p>

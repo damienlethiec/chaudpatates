@@ -17,7 +17,7 @@ class City < ApplicationRecord
   end
 
   def find_city_members
-    trainings = Training.includes(:bookings).city(self)
+    trainings = Training.includes({ bookings: [:user] }).city(self)
     bookings = []
     trainings.each do |training| 
       training.bookings.each do |booking|

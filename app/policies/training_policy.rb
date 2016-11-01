@@ -1,7 +1,7 @@
 class TrainingPolicy < ApplicationPolicy
 
 	def index?
-		true
+		user.is_coach
 	end
 
 	def destroy?

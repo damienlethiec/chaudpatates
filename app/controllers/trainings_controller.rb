@@ -3,7 +3,11 @@ class TrainingsController < ApplicationController
 	skip_after_action :verify_policy_scoped, :only => :index
 
 	def index
-		@trainings = current_user.city.trainings.order(:date).includes(:location)
+		if current_user.is_coach
+			@trainings = current_user.city.trainings.order(:date).includes(:location)
+		else
+			@trainings = Training.all
+		end
     authorize @trainings
 	end
 

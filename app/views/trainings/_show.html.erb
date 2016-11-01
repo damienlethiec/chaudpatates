@@ -5,9 +5,10 @@
   <div class="event-location">
     <% if training.location %>
       <div class="hidden-xs"><%= cl_image_tag training.location.photo.path, class: "avatar-big" %></div>
-      <p><%= training.location.name %></br><%= training.location.address %></p>
+      <a data-toggle="modal" data-target="#modal-<%= training.id %>" %>
+      <p><%= training.location.name %></br><%= training.location.address %></br></a>
     <% else %>
-      <a data-toggle="modal" data-target="#UpdateTraining" data-reveal-id="<%= dom_id(training) %>"><i class="fa fa-map-marker" aria-hidden="true"></i>  Renseigner le lieu</a>
+      <a data-toggle="modal" data-target="#modal-<%= training.id %>" %><i class="fa fa-map-marker" aria-hidden="true"></i>  Renseigner le lieu</a>
     <% end %>
   </div>
   <div class="people-event hidden-xs">

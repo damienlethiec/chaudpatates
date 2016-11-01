@@ -3,6 +3,8 @@ class Location < ApplicationRecord
 
 	ADDRESSLENGTH = 5..150
 
+	scope :city, -> (city) { where("lower(address) LIKE ?", "%#{city.name.downcase}%") }
+
 	validates :name, presence: true
 	validates :photo, presence: true
 	validates :address, presence: true, length: { in: ADDRESSLENGTH }

@@ -1,4 +1,4 @@
-<div class="modal fade" id="UpdateTraining" tabindex="-1" role="dialog" aria-labelledby="UpdateTrainingLabel">
+<div class="modal fade" id="modal-<%= training.id %>" tabindex="-1" role="dialog" aria-labelledby="UpdateTrainingLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -8,8 +8,7 @@
       <div class="modal-body">
         <%= simple_form_for training do |f| %>
           <%= f.error_notification %>
-          <%= f.input :date %>
-            <%= f.input :location, required: true %>
+            <%= f.input :location, required: true, collection: Location.city(training.city) %>
             <%= f.input :public_description, required: true %>
             <%= f.input :private_description, required: true %>
             <%= f.button :submit, "Confirmer", class: "btn-validate btn-success btn" %>
@@ -18,7 +17,3 @@
     </div>
   </div>
 </div>
-
-<%= content_for(:after_js) do %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}""></script>
-<% end %>
