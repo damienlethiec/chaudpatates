@@ -1,0 +1,24 @@
+<div class="list-card">
+  <div class="event-date">
+    <p><%= l(training.date, format: '%A %d %B, à %Hh%M').capitalize %></p>
+  </div>
+  <div class="event-location">
+    <% if training.location %>
+      <div class="hidden-xs"><%= cl_image_tag training.location.photo.path, class: "avatar-big" %></div>
+      <a data-toggle="modal" data-target="#modal-<%= training.id %>" %>
+      <p><%= training.location.name %></br><%= training.location.address %></br></a>
+    <% else %>
+      <a data-toggle="modal" data-target="#modal-<%= training.id %>" %><i class="fa fa-map-marker" aria-hidden="true"></i>  Renseigner le lieu</a>
+    <% end %>
+  </div>
+  <div class="people-event hidden-xs">
+    <p><%= training.number_of_participants %> <%= t("participant", count: training.number_of_participants) %></p>
+  </div>
+  <div class="booking-delete">
+    <%= link_to "Annuler</br>l'entraînement".html_safe,
+        training_path(training),
+        method: :delete, class: "confirm btn btn-danger", data: {confirm: "Souhaitez-vous vraiment supprimer cet entraînement?"}%>
+  </div>
+</div>
+
+<%= render "update", training: training %>

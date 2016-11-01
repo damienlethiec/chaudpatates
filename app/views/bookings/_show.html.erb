@@ -1,0 +1,29 @@
+<div class="list-card">
+  <div class="event-date">
+    <p><%= l(booking.training.date, format: '%A %d %B, à %Hh%M').capitalize %></p>
+  </div>
+  <div class="event-coach hidden-xs hidden-sm">
+    <% if booking.training.city.coach.photo %>
+      <%= cl_image_tag booking.training.city.coach.photo.path, class: "avatar-large" %>
+    <% elsif  booking.training.city.coach.linkedin_picture_url %>
+      <%= cl_image_tag booking.training.city.coach.linkedin_picture_url(:small_face), height: 60, width: 60, crop: :fill %>
+    <% else %>
+      <%= image_tag "http://placehold.it/30x30", class: "avatar-large" %>
+    <% end %>
+    <p>Votre Coach :</br><%= booking.training.city.coach.full_name %></p>
+    </ul>
+  </div>
+  <div class="event-location">
+    <% if booking.training.location %>
+      <div class="hidden-xs"><%= cl_image_tag booking.training.location.photo.path, class: "avatar-big" %></div>
+      <p><%= booking.training.location.name %></br><%= booking.training.location.address %></p>
+    <% else %>
+      <p>Lieu exact bientôt communiqué</p>
+    <% end %>
+  </div>
+  <div class="booking-delete">
+    <%= link_to "Me désinscrire",
+        booking_path(booking),
+        method: :delete, class: "confirm btn btn-danger", data: {confirm: "Souhaitez-vous vraiment vous désinscrire de cet entraînement?"}%>
+  </div>
+</div>

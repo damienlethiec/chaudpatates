@@ -9,7 +9,11 @@
       <div class="modal-body flex-content space-around">
         <% if current_user %>
           <% @available_trainings.each do |training| %>
-            <%= link_to l(training.date, format: '%A %d %B, à %Hh%M').capitalize, bookings_path(training: training, city: @city), method: :post, class: "btn-success btn custom-bootstap-btn text-center mi-spaced" %>
+            <% if training.location %>
+              <%= link_to "#{l(training.date, format: '%A %d %B, à %Hh%M').capitalize}<br />#{training.location.name}<br />#{training.location.address}".html_safe , bookings_path(training: training, city: @city), method: :post, class: "btn-success btn custom-bootstap-btn text-center mi-spaced" %>
+            <% else %>
+              <%= link_to l(training.date, format: '%A %d %B, à %Hh%M').capitalize, bookings_path(training: training, city: @city), method: :post, class: "btn-success btn custom-bootstap-btn text-center mi-spaced" %>
+            <% end %>
           <% end %>
         <% end %>
       </div>

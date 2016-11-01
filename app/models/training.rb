@@ -22,6 +22,10 @@ class Training < ApplicationRecord
     return false
   end
 
+  def number_of_participants
+    self.bookings.count
+  end
+
   # def date_has_to_be_in_session
   # 	sessions_day = []
   # 	city.sessions.each { |session| sessions_day << session.day }

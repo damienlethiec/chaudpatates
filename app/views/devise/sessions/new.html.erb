@@ -16,19 +16,21 @@
 							<%= f.button :submit, "Se connecter", class: "btn-validate btn-success btn" %>
 						</div>
 						<% end %>
-						<%= link_to omniauth_authorize_path(resource_name, :linkedin), class: "socialbox linkedin" do %>
-						<div id="linkedin-button">
-							<i class="icon">
-								<i class="fa fa-fw fa-linkedin">
+						<div class="hidden-xs">
+							<%= link_to omniauth_authorize_path(resource_name, :linkedin), class: "socialbox linkedin" do %>
+							<div id="linkedin-button">
+								<i class="icon">
+									<i class="fa fa-fw fa-linkedin">
+									</i>
 								</i>
-							</i>
-							<div class="slide">
-								<p>
-									Se connecter Linkedin
-								</p>
+								<div class="slide">
+									<p>
+										Se connecter Linkedin
+									</p>
+								</div>
 							</div>
+							<% end %>
 						</div>
-						<% end %>
 					</div>
 					<br>
 					<%= render "devise/shared/links" %>

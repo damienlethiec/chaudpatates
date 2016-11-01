@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :cities, only: [:show]
-  resources :bookings, only: [:create]
+  resources :trainings, only: [:index, :destroy]
+  resources :bookings, only: [:index, :create, :destroy]
   resources :orders, only: [:create] do
     resources :payments, only: [:create]
   end

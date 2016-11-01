@@ -11,7 +11,7 @@
 <div class="spaced">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-10 col-md-offset-1">
 				<div class="text-center">
 					<% if current_user %>
 						<a class="btn-success btn btn-lg spaced" data-toggle="modal" data-target="#IndexTrainings">S’inscrire à un entraînement</a>
@@ -53,8 +53,8 @@
 								<% @city_members.each do |city_member| %>
 									<div class="spaced-left spaced-right">
 										<% if city_member.photo %>
-											<%= cl_image_tag city_member.photo.path, class: "avatar"%>
-											<p><%= city_member.full_name %></p>
+											<%= cl_image_tag city_member.photo.path, class: "avatar-big"%>
+											<p><%= city_member.first_name %></p>
 										<% elsif city_member.linkedin_picture_url %>
 											<%= image_tag city_member.linkedin_picture_url, class: "avatar-big"%>
 											<p><%= city_member.first_name %></p>
@@ -70,5 +70,4 @@
 	</div>
 </div>
 
-<%= render "/trainings/index" %>
-
+<%= render "/trainings/index_form" %>

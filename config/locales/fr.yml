@@ -129,6 +129,10 @@ fr:
     - :day
     - :month
     - :year
+  participant:
+    zero: participant
+    one: participant
+    other: participants
   datetime:
     distance_in_words:
       about_x_hours:

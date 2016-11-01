@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="listing text-center">
+        <h2>Vos entraînements à venir</h2>
+        <% if @bookings.empty? %>
+          <div class="booking-card">
+            <p>Vous n'avez pas d'entraînements à venir ! Réservez-en vite !!</p>
+          </div>
+        <% else %>
+          <% @bookings.each do |booking| %>
+            <%= render 'bookings/show', booking: booking %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
