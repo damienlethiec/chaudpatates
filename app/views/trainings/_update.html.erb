@@ -8,10 +8,10 @@
       <div class="modal-body">
         <%= simple_form_for training do |f| %>
           <%= f.error_notification %>
-            <%= f.input :location, required: true, collection: Location.city(training.city) %>
-            <%= f.input :public_description, required: true %>
-            <%= f.input :private_description, required: true %>
-            <%= f.button :submit, "Confirmer", class: "btn-validate btn-success btn" %>
+          <%= f.association :location, required: true, collection: Location.city(training.city), select: training.location, label_method: :select_label %>
+          <%= f.input :public_description, required: true, placeholder: 'Venez-nous retrouver pour une superbe séance de sport' %>
+          <%= f.input :private_description, required: true, placeholder: 'Première séance pour de nombreuses personnes, rythmes prévu tranquille' %>
+          <%= f.button :submit, "Confirmer", class: "btn-validate btn-success btn" %>
         <% end %>
       </div>
     </div>

@@ -10,4 +10,9 @@ class Location < ApplicationRecord
 	validates :address, presence: true, length: { in: ADDRESSLENGTH }
 
 	has_attachment :photo
+
+	def select_label
+    "#{self.name}, #{self.address}"
+  end
+
 end

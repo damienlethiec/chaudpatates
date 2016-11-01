@@ -36,15 +36,15 @@
 					<% if @next_training.location && @next_training.public_description %>
 					<div class="flex-content flex-center align-items spaced">
 						<%= cl_image_tag @next_training.location.photo.path, class: "avatar-huge" %>
-						<div class="col-sm-6">
+						<div class="col-sm-7">
 							<h4><%= @next_training.location.name %></h4>
 							<h5><%= @next_training.location.address %></h5>
 							<p class="justified"><%= @next_training.public_description %></p>
 						</div>
 					</div>
+					<% end %>
 					<% unless @next_training_booked %>
 						<%= link_to "S'inscrire au prochain entraînement<br />le #{l(@next_training.date, format: '%A %d %B, à %Hh%M')}".html_safe, bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn btn-lg" %>
-					<% end %>
 					<% end %>
 					<% unless @city_members.empty? %>
 						<div class="spaced spaced-top">

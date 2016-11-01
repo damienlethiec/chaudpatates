@@ -1,0 +1,24 @@
+<div class="wrapper-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <div class="form-card text-center">
+          <h2>Créer un nouvel entraînement</h2>
+          <%= simple_form_for(@training) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+	          <%= f.input :date, required: true, :minute_step => 5 %>
+	          <%= f.association :location, required: true, collection: Location.city(current_user.city),label_method: :select_label %>
+	          <%= f.input :public_description, required: true, placeholder: 'Venez-nous retrouver pour une superbe séance de sport' %>
+	          <%= f.input :private_description, required: true, placeholder: 'Première séance pour de nombreuses personnes, rythmes prévu tranquille' %>
+         </div>
+         <div class="text-center">
+          <div class="form-actions">
+            <%= f.button :submit, "Confirmer", class: "btn-validate btn-success btn" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
