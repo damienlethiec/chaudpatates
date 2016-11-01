@@ -5,6 +5,12 @@ ActiveAdmin.register Booking do
 	filter :user
 	filter :training
   filter :created_at
+
+  controller do
+    def scoped_collection
+      Booking.includes([:user, training: [:city]])  # specify grandchild model with hash!
+    end
+  end
 	
 	index do
     selectable_column

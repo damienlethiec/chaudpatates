@@ -3,9 +3,10 @@
     <div class="col-xs-12 col-md-10 col-md-offset-1">
       <div class="listing text-center">
         <h2>Vos entraînements à venir</h2>
-        <% @trainings.upcoming.each do |training| %>
-          <%= render 'trainings/show', training: training %>
-        <% end %>
+          <%= link_to "En créer un nouveau", new_training_path, class: "btn-success btn btn-lg spaced-bottom" %>
+          <% @trainings.upcoming.each do |training| %>
+            <%= render 'trainings/show', training: training %>
+          <% end %>
       </div>
     </div>
   </div>

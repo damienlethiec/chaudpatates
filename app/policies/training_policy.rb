@@ -4,6 +4,18 @@ class TrainingPolicy < ApplicationPolicy
 		user.is_coach
 	end
 
+  def new?
+    user.is_coach
+  end
+
+  def create?
+    record.city.coach == user
+  end
+
+  def update?
+    record.city.coach == user
+  end
+
 	def destroy?
     record.city.coach == user
   end
