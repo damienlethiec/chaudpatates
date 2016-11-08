@@ -1,21 +1,22 @@
 .city-card {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 220px;
   background-size: cover;
-  margin-bottom: 30px;
   color: white;
-  text-align: center;
-  line-height: 220px;
-  font-size: 60px;
   text-transform: capitalize;
   border-radius: 3px;
   &:hover{
     opacity: 0.8;
   }
+  h3 {
+    color: #fff;
+  }
 }
 
-.text-deco-none a:hover { 
-    text-decoration:none; 
+.text-deco-none a:hover {
+    text-decoration:none;
 }
 
 .list-card {
