@@ -1,14 +1,21 @@
 .paragraph-home {
 	padding: 30px 0;
 }
-.title-paragraph {
-  letter-spacing: 4px;
-  color: $black;
-  font-size: 45px;
-  margin-top: 3vh;
-}
 hr {
 	color: $gray;
 	background-color: $gray;
 	border-color: $gray;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 40px 0;
+  .btn {
+    margin: 0 10px;
+  }
 }
