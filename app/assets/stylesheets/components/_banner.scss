@@ -1,32 +1,35 @@
 .banner {
-  background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%),
-                    image-url('background.jpg');
-  background-size: cover;
+  background-image: linear-gradient(-225deg, rgba(30,30,30,0.6) 30%, rgba(46,46,46,0.5) 80%),
+                    image-url('background_2.jpg');
+  background-size: 100%;
+  background-position: 50% 59%;
   color: $black;
-  height: calc(80vh - 60px);
+  height: calc(82vh - 60px);
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 3px 5px 0 rgba(0,0,0,0.04),0 1px 0 0 rgba(0,0,0,0.02);
-  h1 {
-    display: inline-block;
-    font-size: 100px;
+  h1, h2 {
+    text-transform: uppercase;
     color: white;
-    box-shadow: 0px -30px $green inset;
-    text-shadow: none;
+    // box-shadow: 0px -30px $green inset;
+    // text-shadow: none;
+  }
+  h1 {
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+  h2 {
+    font-size: 34px;
+    font-weight: 100;
+    margin-top: 0;
+    color: rgba(250, 250, 250, 0.7)
   }
   h3 {
-    letter-spacing: 4px;
     color: white;
-    font-size: 45px;
-    margin-top: 3vh;
-    font-weight:lighter;
-    font-style:italic;
   }
-}
-.banner-content {
-  width: 80vw;
 }
 
 .banner-small {
