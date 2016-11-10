@@ -11,8 +11,17 @@ class Location < ApplicationRecord
 
 	has_attachment :photo
 
+	geocoded_by :full_address
+	after_validation :geocode
+
 	def select_label
     "#{self.name}, #{self.address}"
+  end
+
+  private
+
+  def full_address
+  	self.address
   end
 
 end

@@ -54,11 +54,12 @@
 									<div class="spaced-left spaced-right">
 										<% if city_member.photo %>
 											<%= cl_image_tag city_member.photo.path, class: "avatar-big"%>
-											<p><%= city_member.first_name %></p>
 										<% elsif city_member.linkedin_picture_url %>
 											<%= image_tag city_member.linkedin_picture_url, class: "avatar-big"%>
-											<p><%= city_member.first_name %></p>
+										<% else %>
+											<%= image_tag "http://res.cloudinary.com/ind-pendant/image/upload/v1478766698/user_mkbsoj.png", class: "avatar-big" %>
 										<% end %>
+										<p><%= city_member.first_name %></p>
 									</div>
 								<% end %>
 							</div>
@@ -69,5 +70,20 @@
 		</div>
 	</div>
 </div>
+<div id="map"></div>
+
+<% content_for(:after_js) do %>
+	<%= javascript_tag do %>
+		$(document).on('ready', function() {
+		  var handler = Gmaps.build('Google');
+		  handler.buildMap({ internal: { id: 'map' } }, function() {
+		    markers = handler.addMarkers(<%=raw @hash_location.to_json %>);
+		    handler.bounds.extendWith(markers);
+		    handler.fitMapToBounds();
+				handler.getMap().setZoom(13);
+			});
+		});
+	<% end %>
+<% end %>
 
 <%= render "/trainings/index_form" %>
