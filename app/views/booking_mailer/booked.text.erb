@@ -1,0 +1,8 @@
+Bonjour <%= @booking.user.first_name %>,
+
+Votre inscription à l'entraînement du <%= l(@booking.training.date, format: '%A %d %B, à %Hh%M')%> a bien été enregistrée. L'addresse de départ : <%= @booking.training.location.name %></br><%= @booking.training.location.address %>. Votre coach <%= @booking.training.city.coach.first_name %> sera là pour vous guider !
+
+Pour voir tous vos entraînements à venir, rendez-vous sur <%= link_to "Mes entraînements à venir", bookings_url %>.
+
+A très bientôt,
+Paul de Chaud Patate
