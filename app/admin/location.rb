@@ -13,8 +13,6 @@ ActiveAdmin.register Location do
       input :name
       input :address
       input :photo, :as => :file
-      input :latitude
-      input :longitude
     end
     actions
   end
