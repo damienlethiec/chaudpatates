@@ -17,7 +17,9 @@ class BookingsController < ApplicationController
 			current_user.tickets_nb -= 1
 			current_user.save
 			BookingMailer.booked(@booking).deliver_now
-			BookingMailer.delay_until(@booking.training.date - 2.days).upcoming(@booking) 
+			unless (Time.now + 3.days > @booking.training.date)
+				BookingMailer.delay_until(@booking.training.date - 2.days).upcoming(@booking)
+			end
 			flash[:notice] = "Votre réservation a bien été prise en compte !!"
 			redirect_to city_path(params[:city])
 		else

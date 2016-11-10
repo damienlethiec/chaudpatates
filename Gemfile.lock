@@ -48,6 +48,7 @@ GIT
 
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actioncable (5.0.0.1)
       actionpack (= 5.0.0.1)
@@ -137,8 +138,10 @@ GEM
     formtastic (3.1.4)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
+    geocoder (1.4.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
     has_scope (0.7.0)
       actionpack (>= 4.1, < 5.1)
       activesupport (>= 4.1, < 5.1)
@@ -237,6 +240,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 5.0.0.1)
       sprockets-rails (>= 2.0.0)
+    rails-assets-underscore (1.8.3)
     rails-dom-testing (2.0.1)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6.0)
@@ -336,6 +340,8 @@ DEPENDENCIES
   devise!
   figaro
   font-awesome-sass
+  geocoder
+  gmaps4rails
   inherited_resources!
   jbuilder (~> 2.0)
   jquery-fileupload-rails
@@ -350,6 +356,7 @@ DEPENDENCIES
   puma
   pundit
   rails (= 5.0.0.1)
+  rails-assets-underscore!
   redis
   sass-rails
   sidekiq

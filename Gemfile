@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem 'rails', '5.0.0.1'
+gem 'geocoder'
 gem 'puma'
 gem 'pg'
 gem 'figaro'
@@ -22,6 +23,11 @@ gem 'sidekiq-failures'
 gem 'sinatra', ">= 2.0.0.beta2", require: false
 gem 'money-rails'
 gem 'stripe'
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 gem 'sass-rails'
 gem 'jquery-rails'
