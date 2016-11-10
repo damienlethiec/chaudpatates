@@ -6,7 +6,7 @@ class City < ApplicationRecord
   alias_attribute :coach, :user
   alias_attribute :coach=, :user=
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :photo, presence: true
   validates :user_id, presence: true
 
@@ -34,4 +34,7 @@ class City < ApplicationRecord
     end
     trainings
   end
+
+  private
+
 end

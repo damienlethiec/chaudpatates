@@ -33,9 +33,11 @@ class TrainingsController < ApplicationController
     if @training.update(training_params)
       flash[:notice] = "Cet entraînement a été mis à jour"
     else
-      flash[:alert] = "Cet entraînement n'a pu être mis à jour. Vérifiez que vous lui avez bien ajouté un lieu et des descriptions privée et publique suffisamment détaillées"
+      respond_to do |format|
+        format.html { redirect_to(trainings_path) }
+        format.js
+      end
     end
-    redirect_to(trainings_path)
   end
 
 	def destroy

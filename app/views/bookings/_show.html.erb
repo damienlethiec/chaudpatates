@@ -8,7 +8,7 @@
     <% elsif  booking.training.city.coach.linkedin_picture_url %>
       <%= cl_image_tag booking.training.city.coach.linkedin_picture_url(:small_face), height: 60, width: 60, crop: :fill %>
     <% else %>
-      <%= image_tag "http://placehold.it/30x30", class: "avatar-large" %>
+      <%= image_tag "http://res.cloudinary.com/ind-pendant/image/upload/v1478766698/user_mkbsoj.png", class: "avatar-large" %>
     <% end %>
     <p>Votre Coach :</br><%= booking.training.city.coach.full_name %></p>
     </ul>

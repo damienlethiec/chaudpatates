@@ -3,7 +3,7 @@ ActiveAdmin.register City do
 	permit_params :name, :user_id, :photo
 
   filter :name
-	filter :user, label: 'COACH', collection: proc { User.where(is_coach: true) }
+	filter :user, label: 'COACH', collection: proc { User.is_coach }
   filter :trainings
   filter :created_at
 
@@ -17,7 +17,7 @@ ActiveAdmin.register City do
   	f.semantic_errors *f.object.errors.keys
     inputs do
       input :name
-      input :user, label: 'Coach', collection: User.where(is_coach: true)
+      input :user, label: 'Coach', collection: User.is_coach.not_linked_to_city
       input :photo, :as => :file
     end
     actions

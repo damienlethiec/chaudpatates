@@ -15,8 +15,6 @@ ActiveAdmin.register User do
     f.semantic_errors *f.object.errors.keys
     inputs do
       input :email
-      input :password
-      input :password_confirmation
       input :first_name
       input :last_name
       input :tickets_nb
