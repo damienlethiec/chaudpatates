@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_one :city
   has_many :bookings, dependent: :destroy
   has_many :order
+  has_attachment :photo
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -14,7 +15,8 @@ class User < ApplicationRecord
   validates :is_coach, inclusion: { in: [true,false] }
   validates :tickets_nb, presence: true, numericality: { only_integer: true }
 
-  has_attachment :photo
+  scope :is_coach, -> { where(is_coach: true) }
+  scope :not_linked_to_city, -> { joins("LEFT OUTER JOIN cities ON cities.user_id = users.id").where("cities IS null") }
 
   def self.find_for_linkedin_oauth(auth)
     user_params = auth.slice(:provider, :uid).to_h

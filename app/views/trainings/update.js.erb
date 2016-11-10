@@ -1,0 +1,5 @@
+<% unless @training.save %>
+	$("#training-<%= @training.id %>").replaceWith("<%= j render 'form', training: @training %>");
+<% else %>
+	location.reload();
+<% end %>

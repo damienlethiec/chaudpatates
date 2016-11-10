@@ -6,13 +6,7 @@
         <h2 class="modal-title text-center green" id="UpdateTraininglLabel">Merci d'indiquer le lieu et de donner une description publique et privée à l'entrainement</h2>
       </div>
       <div class="modal-body">
-        <%= simple_form_for training do |f| %>
-          <%= f.error_notification %>
-          <%= f.association :location, required: true, collection: Location.city(training.city), select: training.location, label_method: :select_label %>
-          <%= f.input :public_description, required: true, placeholder: 'Venez-nous retrouver pour une superbe séance de sport' %>
-          <%= f.input :private_description, required: true, placeholder: 'Première séance pour de nombreuses personnes, rythmes prévu tranquille' %>
-          <%= f.button :submit, "Confirmer", class: "btn-validate btn-success btn" %>
-        <% end %>
+        <%= render "form", training: training%>
       </div>
     </div>
   </div>
