@@ -1,0 +1,9 @@
+Bonjour <%= @booking.user.first_name %>,
+
+Votre prochain entraînement approche !!
+Rendez-vous le <%= l(@booking.training.date, format: '%A %d %B, à %Hh%M')%> pour une séance au top. L'addresse de départ : <%= @booking.training.location.name %></br><%= @booking.training.location.address %>.
+
+Pour voir tous vos entraînements à venir, rendez-vous sur <%= link_to "Mes entraînements à venir", bookings_url %>.
+
+A très bientôt,
+Paul de Chaud Patate

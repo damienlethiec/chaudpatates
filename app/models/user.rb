@@ -18,6 +18,8 @@ class User < ApplicationRecord
   scope :is_coach, -> { where(is_coach: true) }
   scope :not_linked_to_city, -> { joins("LEFT OUTER JOIN cities ON cities.user_id = users.id").where("cities IS null") }
 
+  after_create :send_welcome_email
+
   def self.find_for_linkedin_oauth(auth)
     user_params = auth.slice(:provider, :uid).to_h
     user_params.merge! auth.info.slice(:email, :first_name, :last_name, :headline)
@@ -43,5 +45,11 @@ class User < ApplicationRecord
 
   def to_s
     self.email
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
   end
 end
