@@ -11,7 +11,7 @@ ActiveAdmin.register Location do
   	f.semantic_errors *f.object.errors.keys
     inputs do
       input :name
-      input :address
+      input :address, placeholder: "Exemple de format : 16 Villa Gaudelet, 75011 Paris"
       input :photo, :as => :file
     end
     actions
