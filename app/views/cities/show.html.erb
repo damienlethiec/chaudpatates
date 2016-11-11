@@ -52,10 +52,12 @@
 							<div class="flex-content flex-center">
 								<% @city_members.each do |city_member| %>
 									<div class="spaced-left spaced-right">
-										<% if city_member.photo %>
+										<% if city_member.linkedin_picture_url %>
+											<%= link_to city_member.linkedin_profile, target: "_blank" do %>
+												<%= image_tag city_member.linkedin_picture_url, class: "avatar-big"%>
+											<% end %>
+										<% elsif city_member.photo %>
 											<%= cl_image_tag city_member.photo.path, class: "avatar-big"%>
-										<% elsif city_member.linkedin_picture_url %>
-											<%= image_tag city_member.linkedin_picture_url, class: "avatar-big"%>
 										<% else %>
 											<%= image_tag "http://res.cloudinary.com/ind-pendant/image/upload/v1478766698/user_mkbsoj.png", class: "avatar-big" %>
 										<% end %>
