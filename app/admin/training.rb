@@ -22,7 +22,7 @@ ActiveAdmin.register Training do
       input :location
       input :public_description
       input :private_description
-      input :date
+      input :date, :minute_step => 5
     end
     actions
   end

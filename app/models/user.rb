@@ -39,6 +39,13 @@ class User < ApplicationRecord
     return user
   end
 
+  def favorite_city
+    unless self.bookings.empty?
+      array_cities = self.bookings.includes(training: [:city]).map {|b| b.training.city }.group_by { |i| i }
+      array_cities.max{ |x,y| x[1].length <=> y[1].length }.first
+    end
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end
