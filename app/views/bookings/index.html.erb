@@ -7,6 +7,9 @@
           <div class="booking-card">
             <p>Vous n'avez pas d'entraînements à venir ! Réservez-en vite !!</p>
           </div>
+          <% if @favorite_city %>
+            <%= link_to "S'inscrire à un entrainement", city_path(@favorite_city), class: "btn-success btn btn-lg spaced" %>
+          <% end %>
         <% else %>
           <% @bookings.each do |booking| %>
             <%= render 'bookings/show', booking: booking %>

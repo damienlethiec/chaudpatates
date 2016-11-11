@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   	controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   
   root to: 'pages#home'
+  get "/pages/:page" => "pages#show"
 
   resources :cities, only: [:show]
   resources :trainings, only: [:index, :new, :create, :update, :destroy]

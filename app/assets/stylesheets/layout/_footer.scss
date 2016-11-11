@@ -1,25 +1,22 @@
-.footer {
-  background-color: $gray;
-  height: 120px;
-  letter-spacing: 2px;
-  font-size: 15px;
+.footer-column {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  div {
-  	margin: 5px;
-  }
-  h5 {
-  	font-size: 20px;
-  }
+  margin: 30px;
+}
+.footer {
+  background-color: $gray;
+  height: 150px;
+  letter-spacing: 2px;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .footer-content {
   width: 30vw;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-around;
   a {
   	color: $black;
   	&:hover {

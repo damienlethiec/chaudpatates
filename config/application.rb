@@ -13,6 +13,7 @@ module Chaudpatates
   	config.i18n.default_locale = :fr
   	config.active_job.queue_adapter = :sidekiq
   	config.action_view.embed_authenticity_token_in_remote_forms = true
+  	config.time_zone = 'Paris'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

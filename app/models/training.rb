@@ -11,8 +11,8 @@ class Training < ApplicationRecord
   # validate :date_has_to_be_in_session
 
   scope :session_is, -> (session) { where(session: session) }
-  scope :past, -> { where("date < ?", Date.today) }
-  scope :upcoming, -> { where("date >= ?", Date.today) }
+  scope :past, -> { where("date < ?", (Time.now)) }
+  scope :upcoming, -> { where("date >= ?", (Time.now + 1.hours)) }
   scope :city, -> (city) { where( city: city) }
 
   has_attachment :photo

@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
 
 	def index
 		@bookings = policy_scope(Booking).includes( { training: [:location, :city] } )
+		set_favorite_city
     authorize @bookings
   end
 
@@ -50,6 +51,10 @@ class BookingsController < ApplicationController
 	end
 
 	private
+
+	def set_favorite_city
+		@favorite_city = current_user.favorite_city
+	end
 
   def set_booking
     @booking = Booking.find(params[:id])

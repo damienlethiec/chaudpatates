@@ -4,4 +4,8 @@ class PagesController < ApplicationController
   def home
   	@cities = City.all
   end
+
+  def show
+  	render template: "pages/#{params[:page]}"
+  end
 end
