@@ -1,67 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The change you wanted was rejected (422)</title>
+  <title>Chaud Patate</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+
   body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
+    background-color: white;
+    color: $black;
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
+    font-family: 'Inconsolata', monospace;
   }
-
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
-
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
   h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+    margin-top: 20px;
+    font-size: 100px;
+    color: #2C2C2C;
+    text-shadow: none;
+    margin-bottom: -10px;
+    font-family: 'Raleway', sans-serif;
+  }
+  #with-margin {
+    margin-bottom: 30px;
+  }
+  .title {
+    margin-left: 30vh;
+    margin-right: 30vh;
   }
 
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  #btn_error_page {
+    text-decoration: none;
+    min-height:40px;
+    font-family: $header-font;
+    font-size: 15px;
+    padding: 20px 30px;
+    font-weight: bold;
+    background-color: #13ca12;
+    color: #fff;
+    border: 0;
+    border-radius : 4px;
+    text-shadow: 0px 2px rgba(0,0,0,0.15);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+    &:hover {
+      color: #fff;
+      background-color: darken(#13ca12, 5%);
+    }
   }
+
+  .giphy {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
   </style>
 </head>
 
 <body>
-  <!-- This file lives in public/422.html -->
-  <div class="dialog">
-    <div>
-      <h1>The change you wanted was rejected.</h1>
-      <p>Maybe you tried to change something you didn't have access to.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <div class="title">
+    <h1>Oups</h1>
+    <p>Il semble que vous vous soyiez perdu...</p>
+    <p id='with-margin'>Courrez-vite à la page d'accueil pour retrouver votre route</p>
+    <a href="/" id="btn_error_page">Revenir à la Home Page</a>
+  </div>
+  <div class="giphy">
+    <iframe src="//giphy.com/embed/xT0BKEg3N7gFLBilLG" width="480" height="359" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/puma-bolt-usain-puma-running-xT0BKEg3N7gFLBilLG"></a></p>
   </div>
 </body>
 </html>
