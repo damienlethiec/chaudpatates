@@ -27,7 +27,9 @@
 						<% else %>
 							<%= link_to "S'inscrire à un entrainement", bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn btn-lg spaced" %>
 						<% end %>
-						<%= link_to "Voir mes entraînements à venir", bookings_path, class: "btn-success btn btn-lg spaced" %>
+						<% unless current_user.bookings.upcoming.empty? %>
+							<%= link_to "Voir mes entraînements à venir", bookings_path, class: "btn-success btn btn-lg spaced" %>
+						<% end %>
 					</div>
 					<div class="flex-content space-around">
 						<div>
