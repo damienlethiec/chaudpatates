@@ -24,11 +24,11 @@
 					<div class="flex-content space-around">
 						<% if current_user %>
 							<a class="btn-success btn btn-lg spaced" data-toggle="modal" data-target="#IndexTrainings">S’inscrire à un entraînement</a>
-						<% else %>
-							<%= link_to "S'inscrire à un entrainement", bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn btn-lg spaced" %>
-						<% end %>
 						<% unless current_user.bookings.upcoming.empty? %>
 							<%= link_to "Voir mes entraînements à venir", bookings_path, class: "btn-success btn btn-lg spaced" %>
+						<% end %>
+						<% else %>
+							<%= link_to "S'inscrire à un entrainement", bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn btn-lg spaced" %>
 						<% end %>
 					</div>
 					<div class="flex-content space-around">
