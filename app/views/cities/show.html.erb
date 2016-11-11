@@ -57,7 +57,7 @@
 					</div>
 					<% end %>
 					<% unless @next_training_booked %>
-						<%= link_to "S'inscrire au prochain entraînement<br />le #{l(@next_training.date, format: '%A %d %B, à %Hh%M')}".html_safe, bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn btn-lg" %>
+						<%= link_to "S'inscrire au prochain entraînement<br />le #{l(@next_training.date, format: '%A %d %B, à %Hh%M')}".html_safe, bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn" %>
 					<% end %>
 					<% unless @city_members.empty? %>
 						<div class="spaced spaced-top">
@@ -85,7 +85,9 @@
 		</div>
 	</div>
 </div>
-<div id="map"></div>
+<% if @next_training.location %>
+	<div id="map"></div>
+<% end %>
 
 <% content_for(:after_js) do %>
 	<%= javascript_tag do %>
