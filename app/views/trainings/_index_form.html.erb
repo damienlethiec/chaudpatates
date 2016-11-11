@@ -8,11 +8,13 @@
       </div>
       <div class="modal-body flex-content space-around">
         <% if current_user %>
-          <% @available_trainings.each do |training| %>
-            <% if training.location %>
-              <%= link_to "#{l(training.date, format: '%A %d %B, à %Hh%M').capitalize}<br />#{training.location.name}<br />#{training.location.address}".html_safe , bookings_path(training: training, city: @city), method: :post, class: "btn-success btn custom-bootstap-btn text-center mi-spaced" %>
+          <% @next_trainings.each do |training| %>
+            <% if @available_trainings.include?(training) && training.location %>
+              <%= link_to "#{l(training.date, format: '%A %d %B, à %Hh%M').capitalize}<br />#{training.location.name}<br />#{training.location.address}".html_safe , bookings_path(training: training, city: @city), method: :post, remote: true, class: "btn-success btn custom-bootstap-btn text-center mi-spaced", id: "training-#{training.id}" %>
+            <% elsif @available_trainings.include?(training) %>
+              <%= link_to l(training.date, format: '%A %d %B, à %Hh%M').capitalize, bookings_path(training: training, city: @city), method: :post, remote: true, class: "btn-success btn custom-bootstap-btn text-center mi-spaced", id: "training-#{training.id}" %>
             <% else %>
-              <%= link_to l(training.date, format: '%A %d %B, à %Hh%M').capitalize, bookings_path(training: training, city: @city), method: :post, class: "btn-success btn custom-bootstap-btn text-center mi-spaced" %>
+              <h4 class="text-center green"><%= l(training.date, format: '%A %d %B, à %Hh%M').capitalize %> : Déjà réservé <i class="fa fa-check" aria-hidden="true"></i></h3>
             <% end %>
           <% end %>
         <% end %>

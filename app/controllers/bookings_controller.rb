@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
 		@booking = Booking.new
 		@booking.training = Training.find(params[:training])
 		@booking.user = current_user
+		@training = @booking.training
 		authorize @booking
 		if current_user.tickets_nb > 0
 			@booking.save
@@ -20,11 +21,21 @@ class BookingsController < ApplicationController
 			unless (Time.now + 3.days > @booking.training.date)
 				BookingMailer.delay_until(@booking.training.date - 2.days).upcoming(@booking)
 			end
-			flash[:notice] = "Votre réservation a bien été prise en compte !!"
-			redirect_to city_path(params[:city])
+			respond_to do |format|
+        format.html {
+        	flash[:notice] = "Votre réservation a bien été prise en compte !!"
+        	redirect_to city_path(params[:city])
+        }
+        format.js
+      end
 		else
-			flash[:alert] = "Vous n'avez plus assez de tickets, merci d'en racheter !!"
-			redirect_to city_path(params[:city])
+			respond_to do |format|
+        format.html {
+					flash[:alert] = "Vous n'avez plus assez de tickets, merci d'en racheter !!"
+					redirect_to city_path(params[:city])
+				}
+				format.js
+			end
 		end
 	end
 

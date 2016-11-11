@@ -35,6 +35,5 @@ class City < ApplicationRecord
     trainings
   end
 
-  private
 
 end
