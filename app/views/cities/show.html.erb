@@ -24,11 +24,11 @@
 					<div class="flex-content space-around">
 						<% if current_user %>
 							<a class="btn-success btn btn-lg spaced" data-toggle="modal" data-target="#IndexTrainings">S’inscrire à un entraînement</a>
-						<% else %>
-							<%= link_to "S'inscrire à un entrainement", bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn btn-lg spaced" %>
-						<% end %>
 						<% unless current_user.bookings.upcoming.empty? %>
 							<%= link_to "Voir mes entraînements à venir", bookings_path, class: "btn-success btn btn-lg spaced" %>
+						<% end %>
+						<% else %>
+							<%= link_to "S'inscrire à un entrainement", bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn btn-lg spaced" %>
 						<% end %>
 					</div>
 					<div class="flex-content space-around">
@@ -57,7 +57,7 @@
 					</div>
 					<% end %>
 					<% unless @next_training_booked %>
-						<%= link_to "S'inscrire au prochain entraînement<br />le #{l(@next_training.date, format: '%A %d %B, à %Hh%M')}".html_safe, bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn btn-lg" %>
+						<%= link_to "S'inscrire au prochain entraînement<br />le #{l(@next_training.date, format: '%A %d %B, à %Hh%M')}".html_safe, bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn" %>
 					<% end %>
 					<% unless @city_members.empty? %>
 						<div class="spaced spaced-top">
@@ -85,7 +85,9 @@
 		</div>
 	</div>
 </div>
-<div id="map"></div>
+<% if @next_training.location %>
+	<div id="map"></div>
+<% end %>
 
 <% content_for(:after_js) do %>
 	<%= javascript_tag do %>

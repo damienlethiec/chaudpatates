@@ -1,20 +1,15 @@
-.footer-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 30px;
-}
 .footer {
   background-color: $gray;
-  height: 150px;
   letter-spacing: 2px;
   font-size: 13px;
   display: flex;
   justify-content: space-around;
+  a {
+    text-decoration: none;
+  }
 }
 
 .footer-content {
-  width: 30vw;
   display: flex;
   justify-content: space-around;
   a {
