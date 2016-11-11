@@ -1,0 +1,5 @@
+<% unless current_user.tickets_nb == 0 %>
+	$("#training-<%= @training.id %>").replaceWith("<%= j render 'booked_training', training: @training %>");
+<% else %>
+	$(".stripe-button-el").click();
+<% end %>

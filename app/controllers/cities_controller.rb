@@ -6,6 +6,7 @@ class CitiesController < ApplicationController
 
 	def show
 		set_city
+		set_next_trainings
 		set_next_training
 		set_available_trainings
 		set_city_members
@@ -24,6 +25,10 @@ class CitiesController < ApplicationController
 		if current_user
 			@next_training_booked = @next_training.booked_by?(current_user)
 		end
+	end
+
+	def set_next_trainings
+		@next_trainings = @city.next_trainings
 	end
 
 	def set_available_trainings
