@@ -13,11 +13,14 @@
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="text-center">
+					<div class="flex-content space-around">
 					<% if current_user %>
 						<a class="btn-success btn btn-lg spaced" data-toggle="modal" data-target="#IndexTrainings">S’inscrire à un entraînement</a>
 					<% else %>
 						<%= link_to "S'inscrire à un entrainement", bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn btn-lg spaced" %>
 					<% end %>
+						<%= link_to "Voir mes entraînements à venir", bookings_path, class: "btn-success btn btn-lg spaced" %>
+					</div>
 					<div class="flex-content space-around">
 						<div>
 							<h3 class="coach-title green">Votre coach :</h3>
