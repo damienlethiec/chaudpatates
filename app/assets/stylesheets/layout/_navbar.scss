@@ -41,9 +41,10 @@
 /* Navbar standard link */
 .navbar-wagon-link {
   transition: color 0.3s ease;
-  font-weight: lighter !important;
-  color: #999999 !important;
-  font-size: 15px !important;
+  font-weight: 900 !important;
+  color: #333 !important;
+  font-size: 13px !important;
+  text-transform: uppercase;
   line-height: 22px !important;
   padding: 10px 20px;
 }
