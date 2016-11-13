@@ -12,7 +12,7 @@
   color: #8D8D8D;
   font-size: 15px;
   border-radius: 4px;
-  .password {
+  .password-link {
     display: block;
     color: #8D8D8D;
     text-decoration: underline;
@@ -29,7 +29,7 @@
   }
   .btn-success {
     background-color: $brand-color;
-    border: none;
+    border: 1px solid $brand-color;
     &:hover {
       background-color: darken($brand-color, 5%);
     }
@@ -61,6 +61,22 @@
   font-size: 24px;
 }
 
+.form-card h3 {
+  border-bottom: 1px solid #CCC;
+  height: 0px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8D8D8D;
+  font-size: 18px;
+  div {
+    background: #fff;
+    padding: 0 30px;
+  }
+}
+
 .form-card input {
   font-size: 15px;
 }
@@ -80,7 +96,11 @@
 .form-card .btn {
   width: 100%;
   margin: 15px 0;
-  line-height: 1.8em;
+  line-height: 32px;
+}
+.form-card .linkedin {
+  display: block;
+  height: 40px;
 }
 
 .form-card #linkedin-button {

@@ -6,7 +6,51 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <a href="#" class="navbar-wagon-link dropdown-toggle" data-toggle="dropdown">Villes</a>
+        <div class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu dropdown-cities">
+          <div class="dropdown-cities-container">
+            <ul class="">
+              <li><h4>Nord-Ouest</h4></li>
+              <li><a href="#">Paris</a></li>
+              <li><a href="#">Marseille</a></li>
+              <li><a href="#">Lyon</a></li>
+              <li><a href="#">Lille</a></li>
+              <li><a href="#">Nantes</a></li>
+              <li><a href="#">Toulouse</a></li>
+            </ul>
+            <ul class="">
+              <li><h4>Nord-Est</h4></li>
+              <li><a href="#">Paris</a></li>
+              <li><a href="#">Marseille</a></li>
+              <li><a href="#">Lyon</a></li>
+              <li><a href="#">Lille</a></li>
+              <li><a href="#">Nantes</a></li>
+              <li><a href="#">Toulouse</a></li>
+            </ul>
+            <ul class="">
+              <li><h4>Sud-Est</h4></li>
+              <li><a href="#">Paris</a></li>
+              <li><a href="#">Marseille</a></li>
+              <li><a href="#">Lyon</a></li>
+              <li><a href="#">Lille</a></li>
+              <li><a href="#">Nantes</a></li>
+              <li><a href="#">Toulouse</a></li>
+            </ul>
+            <ul class="">
+              <li><h4>Sud-Ouest</h4></li>
+              <li><a href="#">Paris</a></li>
+              <li><a href="#">Marseille</a></li>
+              <li><a href="#">Lyon</a></li>
+              <li><a href="#">Lille</a></li>
+              <li><a href="#">Nantes</a></li>
+              <li><a href="#">Toulouse</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
       <% if current_user.is_coach %>
@@ -14,9 +58,9 @@
           <i class="fa fa-calendar" aria-hidden="true"></i> Gérer ma ville
         <% end %>
       <% else %>
-<!--       <div class="navbar-wagon-item"> -->
+    <!--       <div class="navbar-wagon-item"> -->
         <h5><%= "Tickets disponibles : #{current_user.tickets_nb}" %></h5>
-  <!--       </div> -->
+    <!--       </div> -->
 
         <div class="navbar-wagon-item">
           <%= form_tag orders_path do %>
@@ -66,7 +110,7 @@
     <% else %>
 
       <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path, class: "navbar-wagon-link" %>
 
     <% end %>
 
