@@ -3,7 +3,8 @@
   position: relative;
   display: block;
   float: left;
-  height: 40px;
+  height: 46px;
+  padding: 3px 0;
   overflow: hidden;
   width: 200px;
   border-radius: 3px;
@@ -11,8 +12,10 @@
   -ms-border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 900;
   &:hover {
-    opacity: 0.8;
+    background-color: darken(#007bb6, 5%);
   }
 }
 
@@ -29,7 +32,7 @@
     z-index: 3;
     height: 100%;
     vertical-align: top;
-    width: 38px;
+    width: 9%;
     -moz-border-radius-topleft: 3px;
     -moz-border-radius-topright: 0px;
     -moz-border-radius-bottomright: 0px;
@@ -41,7 +44,7 @@
 
 .icon i {
     color: #fff;
-    line-height: 42px;
+    line-height: 40px;
 }
 
 .slide {
@@ -51,7 +54,7 @@
     height: 100%;
     left: 38px;
     position: absolute;
-    width: 162px;
+    width: 81%;
     -moz-border-radius-topleft: 0px;
     -moz-border-radius-topright: 3px;
     -moz-border-radius-bottomright: 3px;
@@ -62,7 +65,6 @@
 
 .slide p {
     font-family: Open Sans;
-    font-weight: 400;
     border-left: 1px solid #fff;
     border-left: 1px solid rgba(255,255,255,0.35);
     color: #fff;
@@ -84,6 +86,9 @@
 
 .btn {
   min-height:40px;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 14px;
 }
 
 .btn-gray {
@@ -116,5 +121,14 @@
   &:hover {
     color: #fff;
     background-color: darken(#13ca12, 5%);
+  }
+}
+
+.btn-signup {
+  border: 1px solid $brand-color;
+  color: $brand-color;
+  &:hover {
+    border-color: darken($brand-color, 5%);
+    color: darken($brand-color, 5%);
   }
 }
