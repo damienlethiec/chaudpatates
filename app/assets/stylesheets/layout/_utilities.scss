@@ -7,9 +7,6 @@
 // Paddings
 body, html {
 	height: 100%;
-	.container {
-		min-height: calc(100% - 210px);
-	}
 }
 a {
 	&:hover {
