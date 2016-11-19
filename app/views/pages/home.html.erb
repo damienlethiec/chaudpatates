@@ -36,3 +36,8 @@
   </div>
   </div>
 </div>
+<% content_for :after_js do %>
+  <script type="text/javascript">
+    $(window).scroll(function(){ $('.dropdown').removeClass("open"); });
+  </script>
+<% end %>

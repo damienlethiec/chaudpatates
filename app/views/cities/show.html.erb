@@ -1,90 +1,105 @@
 <% content_for(:title) do %>
-  Fais du sport entre startupers à <% @city.name %> avec Chaud Patate !
+  Chaud Patate - Faire du sport entre startupers à <% @city.name %>
 <% end %>
 
 <% content_for(:description) do %>
-  Chaud Patate te permet de faire du sport à <% @city.name %> tout en rencontrant d'autres startupers !
+  Chaud Patate à <% @city.name %>. Faites du sport en rencontrant d'autres startupers. Networking sportif.
 <% end %>
 
-<div class="banner-small" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%), url(<%= cl_image_path @city.photo.path %>); background-size: cover; background-position: center">
-	<div class="banner-content-small">
-		<h2><%= @city.name.capitalize %></h2>
-		<div class="flex-content flex-center">
-			<% @city.sessions.each do |session| %>
-			<h4><%= "#{t(:"date.day_names")[wday(session.day)].capitalize}@#{session.time_of_day.strftime('%Hh%M')}" %></h4>
-			<% end %>
-		</div>
-	</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="row">
+        <div class="banner-city" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%), url(<%= cl_image_path @city.photo.path %>); background-size: cover; background-position: center">
+          <div class="banner-content">
+            <h2><%= @city.name.capitalize %></h2>
+            <% @city.sessions.each do |session| %>
+            <h4>
+              <%= "#{t(:"date.day_names")[wday(session.day)].capitalize}@#{session.time_of_day.strftime('%Hh%M')}" %>
+            </h4>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <% if current_user %>
+            <a class="btn" data-toggle="modal" data-target="#IndexTrainings">S’inscrire à un entraînement</a>
+            <% unless current_user.bookings.upcoming.empty? %>
+            <div class="alert alert-warning">
+              <%= current_user.first_name %>, vous êtes inscrits aux sessions de Lyon <%= link_to "Voir mes entraînements à venir", bookings_path, class: "btn-success btn btn-lg spaced" %>
+            </div>
+
+            <% end %>
+          <% else %>
+            <%= link_to "S'inscrire à un entrainement", bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn btn-lg spaced" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
-<div class="spaced">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
-				<div class="text-center">
-					<div class="flex-content space-around">
-						<% if current_user %>
-							<a class="btn-success btn btn-lg spaced" data-toggle="modal" data-target="#IndexTrainings">S’inscrire à un entraînement</a>
-						<% unless current_user.bookings.upcoming.empty? %>
-							<%= link_to "Voir mes entraînements à venir", bookings_path, class: "btn-success btn btn-lg spaced" %>
-						<% end %>
-						<% else %>
-							<%= link_to "S'inscrire à un entrainement", bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn btn-lg spaced" %>
-						<% end %>
-					</div>
-					<div class="flex-content space-around">
-						<div>
-							<h3 class="coach-title green">Votre coach :</h3>
-							<div class="flex-content align-items">
-								<% if @city.coach.photo %>
-								<%= cl_image_tag @city.coach.photo.path, class: "avatar-big" %>
-								<% end %>
-								<h4 class="spaced-left"><%= @city.coach.full_name %></h4>
-							</div>
-						</div>
-						<div>
-							<h3 class="spaced green">Prochain départ :</h3>
-							<h4><%= l(@next_training.date, format: '%A %d %B, à %Hh%M').capitalize %></h4>
-						</div>
-					</div>
-					<% if @next_training.location && @next_training.public_description %>
-					<div class="flex-content flex-center align-items spaced">
-						<%= cl_image_tag @next_training.location.photo.path, class: "avatar-huge" %>
-						<div class="col-sm-6">
-							<h4><%= @next_training.location.name %></h4>
-							<h5><%= @next_training.location.address %></h5>
-							<p class="justified"><%= @next_training.public_description %></p>
-						</div>
-					</div>
-					<% end %>
-					<% unless @next_training_booked %>
-						<%= link_to "S'inscrire au prochain entraînement<br />le #{l(@next_training.date, format: '%A %d %B, à %Hh%M')}".html_safe, bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn" %>
-					<% end %>
-					<% unless @city_members.empty? %>
-						<div class="spaced spaced-top">
-							<h3 class="green">Les membres de <%= @city.name %></h3>
-							<div class="flex-content flex-center">
-								<% @city_members.each do |city_member| %>
-									<div class="spaced-left spaced-right">
-										<% if city_member.linkedin_picture_url %>
-											<%= link_to city_member.linkedin_profile, target: "_blank" do %>
-												<%= image_tag city_member.linkedin_picture_url, class: "avatar-big"%>
-											<% end %>
-										<% elsif city_member.photo %>
-											<%= cl_image_tag city_member.photo.path, class: "avatar-big"%>
-										<% else %>
-											<%= image_tag "http://res.cloudinary.com/ind-pendant/image/upload/v1478766698/user_mkbsoj.png", class: "avatar-big" %>
-										<% end %>
-										<p><%= city_member.first_name %></p>
-									</div>
-								<% end %>
-							</div>
-						</div>
-					<% end %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-center">
+        <div class="flex-content space-around">
 				</div>
+				<div class="flex-content space-around">
+					<div>
+						<h3 class="coach-title green">Votre coach :</h3>
+						<div class="flex-content align-items">
+							<% if @city.coach.photo %>
+							<%= cl_image_tag @city.coach.photo.path, class: "avatar-big" %>
+							<% end %>
+							<h4 class="spaced-left"><%= @city.coach.full_name %></h4>
+						</div>
+					</div>
+					<div>
+						<h3 class="spaced green">Prochain départ :</h3>
+						<h4><%= l(@next_training.date, format: '%A %d %B, à %Hh%M').capitalize %></h4>
+					</div>
+				</div>
+				<% if @next_training.location && @next_training.public_description %>
+				<div class="flex-content flex-center align-items spaced">
+					<%= cl_image_tag @next_training.location.photo.path, class: "avatar-huge" %>
+					<div class="col-sm-6">
+						<h4><%= @next_training.location.name %></h4>
+						<h5><%= @next_training.location.address %></h5>
+						<p class="justified"><%= @next_training.public_description %></p>
+					</div>
+				</div>
+				<% end %>
+				<% unless @next_training_booked %>
+					<%= link_to "S'inscrire au prochain entraînement<br />le #{l(@next_training.date, format: '%A %d %B, à %Hh%M')}".html_safe, bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn" %>
+				<% end %>
+				<% unless @city_members.empty? %>
+					<div class="spaced spaced-top">
+						<h3 class="green">Les membres de <%= @city.name %></h3>
+						<div class="flex-content flex-center">
+							<% @city_members.each do |city_member| %>
+								<div class="spaced-left spaced-right">
+									<% if city_member.linkedin_picture_url %>
+										<%= link_to city_member.linkedin_profile, target: "_blank" do %>
+											<%= image_tag city_member.linkedin_picture_url, class: "avatar-big"%>
+										<% end %>
+									<% elsif city_member.photo %>
+										<%= cl_image_tag city_member.photo.path, class: "avatar-big"%>
+									<% else %>
+										<%= image_tag "http://res.cloudinary.com/ind-pendant/image/upload/v1478766698/user_mkbsoj.png", class: "avatar-big" %>
+									<% end %>
+									<p><%= city_member.first_name %></p>
+								</div>
+							<% end %>
+						</div>
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
 </div>
+
 <% if @next_training.location %>
 	<div id="map"></div>
 <% end %>

@@ -58,9 +58,9 @@
           <i class="fa fa-calendar" aria-hidden="true"></i> Gérer ma ville
         <% end %>
       <% else %>
-    <!--       <div class="navbar-wagon-item"> -->
-        <h5><%= "Tickets disponibles : #{current_user.tickets_nb}" %></h5>
-    <!--       </div> -->
+        <div class="navbar-wagon-item">
+          <h5>Séances <span class="circle"><%= current_user.tickets_nb %></span></h5>
+        </div>
 
         <div class="navbar-wagon-item">
           <%= form_tag orders_path do %>
@@ -70,7 +70,7 @@
               data-image="http://res.cloudinary.com/ind-pendant/image/upload/v1477414806/logo_jieaz6.jpg"
               data-locale="auto"
               data-email="<%= current_user.email %>"
-              data-label="Racheter des tickets"
+              data-label="Acheter des séances"
               data-name="<%= @tickets_package.tickets_nb %> tickets Chaud Patate"
               data-description="Pour <%= @tickets_package.tickets_nb %> entraînements avec la team !"
               data-amount="<%= @tickets_package.price_cents %>"
