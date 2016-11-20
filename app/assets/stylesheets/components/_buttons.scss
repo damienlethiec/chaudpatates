@@ -174,8 +174,10 @@
   text-shadow: unset;
   text-transform: none;
   border-radius: 4px;
+  text-transform: uppercase;
   &:hover {
     color: #fff;
     background-color: darken($brand-color, 5%);
+    text-decoration: none;
   }
 }

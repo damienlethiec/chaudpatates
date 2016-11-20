@@ -15,13 +15,9 @@ class BookingsController < ApplicationController
 		@training = @booking.training
 		authorize @booking
 		if current_user.tickets_nb > 0
-			@booking.save
-			current_user.tickets_nb -= 1
-			current_user.save
-			BookingMailer.booked(@booking).deliver_now
-			unless (Time.now + 3.days > @booking.training.date)
-				BookingMailer.delay_until(@booking.training.date - 2.days).upcoming(@booking)
-			end
+      @booking.notify_customer if @booking.save
+      current_user.tickets_nb -= 1
+      current_user.save
 			respond_to do |format|
         format.html {
         	flash[:notice] = "Votre réservation a bien été prise en compte !!"
@@ -60,5 +56,5 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
   end
-	
+
 end

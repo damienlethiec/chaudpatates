@@ -48,7 +48,7 @@
             <h3 class="text-center section-title">Prochain départ</h3>
             <% if @next_training.location && @next_training.public_description %>
               <div class="location-details">
-                <%= cl_image_tag @next_training.location.photo.path, class: "avatar-huge" %>
+                <%= cl_image_tag @next_training.location.photo.path, width: 120, height: 120, crop: :fill, class: "avatar-huge" %>
                 <div>
                   <h4><%= @next_training.location.name %></h4>
                   <p>

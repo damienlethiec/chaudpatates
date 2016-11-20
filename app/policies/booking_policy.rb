@@ -5,7 +5,7 @@ class BookingPolicy < ApplicationPolicy
 	end
 
 	def create?
-    Training.where(id: @record.training.id).exists? && @record.user == user
+    Training.where(id: @record.training.id).exists? && record.user == user
 	end
 
   def destroy?
