@@ -4,19 +4,30 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h2 class="modal-title text-center green" id="IndexTrainingslLabel">Ravi de vous voir parmi nous !</h2>
-        <h3 class="modal-title text-center">A quelle date souhaitez-vous vous inscrire ?</h3>
+        <p>A quelle date souhaitez-vous vous inscrire ?</p>
       </div>
-      <div class="modal-body flex-content space-around">
+      <div class="modal-body flex-content space-around trainings">
         <% if current_user %>
+          <ul>
           <% @next_trainings.each do |training| %>
-            <% if @available_trainings.include?(training) && training.location %>
-              <%= link_to "#{l(training.date, format: '%A %d %B, à %Hh%M').capitalize}<br />#{training.location.name}<br />#{training.location.address}".html_safe , bookings_path(training: training, city: @city), method: :post, remote: true, class: "btn-success btn custom-bootstap-btn text-center mi-spaced", id: "training-#{training.id}" %>
-            <% elsif @available_trainings.include?(training) %>
-              <%= link_to l(training.date, format: '%A %d %B, à %Hh%M').capitalize, bookings_path(training: training, city: @city), method: :post, remote: true, class: "btn-success btn custom-bootstap-btn text-center mi-spaced", id: "training-#{training.id}" %>
-            <% else %>
-              <h4 class="text-center green"><%= l(training.date, format: '%A %d %B, à %Hh%M').capitalize %> : Déjà réservé <i class="fa fa-check" aria-hidden="true"></i></h3>
-            <% end %>
+            <li id="training-<%= training.id %>">
+              <div>
+                <%= l(training.date, format: '%A %d %B à %Hh%M') %><br />
+                <% if @available_trainings.include?(training) %>
+                  <% if training.location %>
+                      <%= cl_image_tag training.location.photo.path, width: 60, height: 60, crop: :fill, class: "avatar-large" %>
+                      <strong><%= training.location.name %></strong><br />
+                      <%= training.location.address %>
+                  <% end %>
+                </div>
+                  <%= link_to "Réserver" , bookings_path(training: training, city: @city), method: :post, remote: true, class: "btn-cta-small", id: "training-#{training.id}" %>
+                <% else %>
+                </div>
+                  <span>Déjà réservé <i class="fa fa-check" aria-hidden="true"></i></span>
+                <% end %>
+            </li>
           <% end %>
+          </ul>
         <% end %>
       </div>
     </div>

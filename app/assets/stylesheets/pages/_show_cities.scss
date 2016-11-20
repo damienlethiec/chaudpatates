@@ -10,3 +10,20 @@
   margin-bottom: 60px;
   background-color: #fff;
 }
+
+.trainings {
+  ul {
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+    padding: 20px 40px;
+    li {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 1px solid #dedede;
+      padding: 10px 0;
+    }
+  }
+}

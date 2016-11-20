@@ -1,7 +1,13 @@
 <h1>Bonjour <%= @booking.user.first_name %>,</h1>
 
 <p>
-Votre inscription à l'entraînement du <%= l(@booking.training.date, format: '%A %d %B, à %Hh%M')%> a bien été enregistrée. L'addresse de départ : <%= @booking.training.location.name %></br><%= @booking.training.location.address %>. Votre coach <%= @booking.training.city.coach.first_name %> sera là pour vous guider !
+  Votre inscription à l'entraînement du <%= l(@booking.training.date, format: '%A %d %B, à %Hh%M')%> a bien été enregistrée.
+  <% if @booking.training.location %>
+    L'addresse de départ : <%= @booking.training.location.name %></br><%= @booking.training.location.address %>.
+  <% else %>
+    Le lieux de départ n'a pas encore été communiqué mais il sera affiché sur la page de ta ville plus tard.
+  <% end %>
+  Votre coach <%= @booking.training.city.coach.first_name %> sera là pour vous accueillir.
 </p>
 
 <p>
