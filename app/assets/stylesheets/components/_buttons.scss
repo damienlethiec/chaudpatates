@@ -134,3 +134,27 @@
     color: darken($brand-color, 5%);
   }
 }
+
+.btn-coach {
+  background-color: #f1f1f1;
+  color: #777;
+  padding: 0 15px;
+  border-radius: 4px 0 0 4px;
+  img {
+    margin-right: 10px;
+  }
+  &:hover {
+    color: #000;
+  }
+}
+.btn-cta {
+  background-color: $brand-color;
+  color: white;
+  padding: 0 15px;
+  border-radius: 0 4px 4px 0;
+  &:hover {
+    background-color: darken($brand-color, 5%);
+    color: #fff;
+    text-decoration: none;
+  }
+}
