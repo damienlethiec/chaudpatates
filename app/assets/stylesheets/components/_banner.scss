@@ -46,6 +46,7 @@
 }
 
 .banner-city {
+  margin: 20px 0 0 0;
   background-size: cover;
   color: $black;
   height: 50vh;
@@ -62,10 +63,13 @@
     font-size: 80px;
     color: white;
     text-shadow: none;
+    text-transform: uppercase;
   }
   h4 {
     color: white;
-    font-size: 30px;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0;
   }
   h5 {
     color: $black;
@@ -90,12 +94,12 @@
 }
 .banner-cta {
   position: relative;
-  top: 64px;
+  top: 89px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
   height: 60px;
 
@@ -106,4 +110,6 @@
   justify-content: center;
   align-items: stretch;
   cursor: pointer;
+  font-family: $header-font;
+  text-transform: uppercase;
 }

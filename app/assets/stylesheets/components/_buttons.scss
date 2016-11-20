@@ -138,23 +138,44 @@
 .btn-coach {
   background-color: #f1f1f1;
   color: #777;
-  padding: 0 15px;
+  padding: 0 25px;
   border-radius: 4px 0 0 4px;
   img {
     margin-right: 10px;
   }
   &:hover {
     color: #000;
+    background-color: darken(#f1f1f1, 5%);
   }
 }
 .btn-cta {
   background-color: $brand-color;
   color: white;
-  padding: 0 15px;
+  padding: 0 25px;
   border-radius: 0 4px 4px 0;
   &:hover {
     background-color: darken($brand-color, 5%);
     color: #fff;
     text-decoration: none;
+  }
+}
+
+.btn-cta-small {
+  margin: 0 0 0 10px;
+  background-color: $brand-color;
+  color: #fff;
+  padding: 0px 15px;
+  min-height: 30px;
+  height: 34px;
+  line-height: 32px;
+  background: #00c200;
+  font-family: "Roboto Condensed", "Helvetica", "sans-serif";
+  font-size: 13px;
+  text-shadow: unset;
+  text-transform: none;
+  border-radius: 4px;
+  &:hover {
+    color: #fff;
+    background-color: darken($brand-color, 5%);
   }
 }

@@ -1,6 +1,28 @@
 .section-title {
-
+  margin: 0 0 20px 0;
 }
 
 .section-location {
+  margin: 50px 0 50px 0;
+  .location-details{
+    display: flex;
+    flex-direction: row;
+    img {
+      margin-right: 15px;
+    }
+    .anchor-map {
+      color: #999;
+      &:hover {
+        color: $brand-color;
+        text-decoration: none;
+      }
+    }
+    div > * {
+      margin: 0;
+    }
+  }
+}
+
+.section-members {
+  margin: 0 0 50px 0;
 }
