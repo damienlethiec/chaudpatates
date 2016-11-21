@@ -29,11 +29,30 @@ kenenisa = User.create!(
   photo: Cloudinary::Uploader.upload("https://upload.wikimedia.org/wikipedia/commons/4/4a/Kenenisa_Bekele_Berlin_2009.jpg")
   )
 
+paul = User.create!(
+  email: "paul@mail.com",
+  password: "paulpaul",
+  first_name: "Paul",
+  last_name: "Voillemin",
+  is_coach: true,
+  photo: Cloudinary::Uploader.upload("https://pbs.twimg.com/profile_images/522401288848302081/d8CfHnPb.jpeg")
+  )
+
 paris = City.create!(
 	name: "Paris",
-	user_id: kenenisa.id,
+	user_id: paul.id,
 	photo: Cloudinary::Uploader.upload("https://a4.odistatic.net/images/landingpages/vacation/640x480/paris_640x480.jpg")
 	)
+marseille = City.create!(
+  name: "Marseille",
+  user_id: kenenisa.id,
+  photo: Cloudinary::Uploader.upload("http://blog.appartager.com/wp-content/uploads/2016/04/marseille.jpg")
+  )
+biarritz = City.create!(
+  name: "Biarritz",
+  user_id: usain.id,
+  photo: Cloudinary::Uploader.upload("http://www.lycee-hotelier-biarritz.com/ADI/files/fond_ecran/1.jpg")
+  )
 
 tuesday_session = Session.create!(
 	day: 1,
@@ -47,14 +66,33 @@ friday_session = Session.create!(
 	city_id: paris.id
 	)
 
+wednesday_session = Session.create!(
+  day: 2,
+  time_of_day: Time.new(2016, 10, 31, 19, 0, 0, "+02:00").strftime("%H:%M:%S"),
+  city_id: marseille.id
+  )
+
+thursday_session = Session.create!(
+  day: 3,
+  time_of_day: Time.new(2016, 10, 31, 19, 0, 0, "+02:00").strftime("%H:%M:%S"),
+  city_id: biarritz.id
+  )
+
 le_wagon = Location.create!(
 	name: "Le Wagon",
 	address: "16 Villa Gaudelet, 75011 Paris",
 	photo: Cloudinary::Uploader.upload("http://lewagon.github.io/ui-components/images/lewagon.png")
 	)
 
+belle_mai = Location.create!(
+  name: "Belle de Mai",
+  address: "37 Rue Guibal, 13003 Marseille",
+  photo: Cloudinary::Uploader.upload("http://www.belledemai.org/wp-content/themes/rewalk-parent/default_media/logo-simple.png")
+  )
+
 ticket_by_10 = TicketsPackage.create!(
 	sku: "ticket-training-by-10",
 	price: 70,
 	tickets_nb: 10
 	)
+
