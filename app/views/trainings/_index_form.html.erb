@@ -8,21 +8,25 @@
       </div>
       <div class="modal-body flex-content space-around trainings">
         <% if current_user %>
-          <ul>
+          <ul class="trainings">
           <% @next_trainings.each do |training| %>
             <li id="training-<%= training.id %>">
-              <div>
-                <%= l(training.date, format: '%A %d %B à %Hh%M') %><br />
+              <div class="training">
+                <p><%= l(training.date, format: '%A %d %B à %Hh%M') %></p>
+                <% if training.location %>
+                  <div class="location">
+                    <%= cl_image_tag training.location.photo.path, width: 80, height: 80, crop: :fill, class: "avatar-large" %>
+                    <div class="location-info">
+                      <span><strong><%= training.location.name %></strong></span>
+                      <span><%= training.location.address %></span>
+                    </div>
+                  </div>
+                <% end %>
                 <% if @available_trainings.include?(training) %>
-                  <% if training.location %>
-                      <%= cl_image_tag training.location.photo.path, width: 60, height: 60, crop: :fill, class: "avatar-large" %>
-                      <strong><%= training.location.name %></strong><br />
-                      <%= training.location.address %>
-                  <% end %>
-                </div>
+              </div>
                   <%= link_to "Réserver" , bookings_path(training: training, city: @city), method: :post, remote: true, class: "btn-cta-small", id: "training-#{training.id}" %>
                 <% else %>
-                </div>
+              </div>
                   <span>Déjà réservé <i class="fa fa-check" aria-hidden="true"></i></span>
                 <% end %>
             </li>

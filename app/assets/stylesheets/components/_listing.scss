@@ -42,3 +42,22 @@
     background: white;
   }
 }
+
+.trainings {
+  .training {
+    p{
+      margin: 0;
+    }
+  }
+  .location {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0;
+  }
+  .location-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5px;
+  }
+}
