@@ -18,6 +18,4 @@ class Booking < ApplicationRecord
       BookingMailer.delay_until(training.date - 1.day).upcoming(self)
     end
   end
-
-
 end

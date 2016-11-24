@@ -92,26 +92,6 @@
       </div>
     </div>
   </div>
-<!------------ Fake partie à refaire ---------------->
-</div>
-<!--
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="text-center">
-				<div class="flex-content space-around">
-					<div>
-						<h3 class="spaced green">Prochain départ :</h3>
-						<h4><%= l(@next_training.date, format: '%A %d %B, à %Hh%M').capitalize %></h4>
-					</div>
-				</div>
-
-				<% unless @next_training_booked %>
-					<%= link_to "S'inscrire au prochain entraînement<br />le #{l(@next_training.date, format: '%A %d %B, à %Hh%M')}".html_safe, bookings_path(training: @next_training, city: @city), method: :post, class: "btn-success btn" %>
-				<% end %>
-
-			</div>
-		</div>
-	</div> -->
 </div>
 
 <% content_for(:after_js) do %>
