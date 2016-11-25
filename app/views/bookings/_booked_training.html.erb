@@ -1,22 +1,15 @@
 <li id="training-<%= training.id %>">
   <div class="training">
     <p><%= l(training.date, format: '%A %d %B à %Hh%M') %></p>
-
-    <% if @available_trainings.include?(training) %>
-      <% if training.location %>
-        <div class="location">
-          <%= cl_image_tag training.location.photo.path, width: 80, height: 80, crop: :fill, class: "avatar-large" %>
-          <div class="location-info">
-            <span><strong><%= training.location.name %></strong></span>
-            <span><%= training.location.address %></span>
-          </div>
+    <% if training.location %>
+      <div class="location">
+        <%= cl_image_tag training.location.photo.path, width: 80, height: 80, crop: :fill, class: "avatar-large" %>
+        <div class="location-info">
+          <span><strong><%= training.location.name %></strong></span>
+          <span><%= training.location.address %></span>
         </div>
-      <% end %>
-  </div>
-      <%= link_to "Réserver" , bookings_path(training: training, city: @city), method: :post, remote: true, class: "btn-cta-small", id: "training-#{training.id}" %>
-    <% else %>
-    </div>
-  </div>
-      <span>Déjà réservé <i class="fa fa-check" aria-hidden="true"></i></span>
+      </div>
     <% end %>
+  </div>
+  <span>Déjà réservé <i class="fa fa-check" aria-hidden="true"></i></span>
 </li>
