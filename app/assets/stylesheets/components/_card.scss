@@ -19,25 +19,35 @@
 .text-deco-none a:hover {
     text-decoration:none;
 }
-
+.bookings {
+  padding: 20px 0 0 0;
+  background: #fff;
+  h2 {
+    margin: 30px 0;
+  }
+}
 .list-card {
-  border: 1px solid #e5e5e5;
+  border-top: 1px solid #f0f0f0;
   border-bottom: none;
   background: #fff;
   padding: 30px;
   display: flex;
   position: relative;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  &:hover {
+    background-color: lighten(#00c200, 60%);
+  }
   &:last-child {
     margin: 0;
-    border-bottom: 1px solid #e5e5e5;
   }
   & > * {
     margin: 0 2% 0 0;
+    &:last-child{
+      margin-right: 0;
+    }
   }
   a {
-    margin-right: 15px;
     &:hover {
       text-decoration: none;
     }
@@ -45,6 +55,7 @@
   p {
     padding: 0;
     margin: 0;
+    text-align: left;
     & > a {
     color: $text-color;
     font-weight: bold;
@@ -62,13 +73,16 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 24%;
+    width: 30%;
+    img {
+      margin: 0 10px 0 0;
+    }
   }
   .event-date {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 28%;
+    width: 30%;
   }
   .people-event {
     display: flex;
@@ -77,18 +91,26 @@
     justify-content: center;
     width: 21%;
   }
-  .booking-delete {
-    position: absolute;
-    right: 0px;
-  }
-  }
   .event-coach {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 21%;
+    width: 25%;
     img {
       margin-right: 10px;
       border-radius: 50%;
     }
   }
+  .booking-delete {
+    width: 15%;
+    a {
+      min-height: 30px;
+      padding: 0px 15px;
+      height: 36px;
+      line-height: 36px;
+      font-family: "Roboto Condensed", "Helvetica", "sans-serif";
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+  }
+}

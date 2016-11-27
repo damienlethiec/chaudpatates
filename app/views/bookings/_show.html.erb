@@ -10,13 +10,16 @@
     <% else %>
       <%= image_tag "http://res.cloudinary.com/ind-pendant/image/upload/v1478766698/user_mkbsoj.png", class: "avatar-large" %>
     <% end %>
-    <p>Votre Coach :</br><%= booking.training.city.coach.full_name %></p>
+    <p><%= booking.training.city.coach.full_name %></p>
     </ul>
   </div>
   <div class="event-location">
     <% if booking.training.location %>
-      <div class="hidden-xs"><%= cl_image_tag booking.training.location.photo.path, class: "avatar-big" %></div>
-      <p><%= booking.training.location.name %></br><%= booking.training.location.address %></p>
+      <div class="hidden-xs"><%= cl_image_tag booking.training.location.photo.path, class: "avatar-large" %></div>
+      <p>
+        <strong><%= booking.training.location.name %></strong></br>
+        <span style="color: #aaa; font-size: 13px"><%= booking.training.location.address %></span>
+      </p>
     <% else %>
       <p>Lieu exact bientôt communiqué</p>
     <% end %>

@@ -17,6 +17,8 @@ class Training < ApplicationRecord
 
   has_attachment :photo
 
+  before_destroy :notify_user_of_cancellation
+
   def booked_by?(user)
     user.bookings.each do |booking|
       return true if booking.training == self
@@ -42,5 +44,9 @@ class Training < ApplicationRecord
 
   def to_s
     "#{self.date}, #{self.city.name}"
+  end
+
+  def notify_user_of_cancellation
+    TrainingMailer.cancellation(self).deliver_now
   end
 end
