@@ -1,9 +1,18 @@
-<div id="training-<%= training.id %>">
+<div id="training-<%= training.id %>" class="training-form">
 	<%= simple_form_for training, remote: true do |f| %>
 	  <%= f.error_notification %>
-	  <%= f.association :location, required: true, collection: Location.city(training.city), select: training.location, label_method: :select_label %>
-	  <%= f.input :public_description, required: true, placeholder: 'Venez-nous retrouver pour une superbe séance de sport' %>
-	  <%= f.input :private_description, required: true, placeholder: 'Première séance pour de nombreuses personnes, rythmes prévu tranquille' %>
-	  <%= f.button :submit, "Confirmer", class: "btn-validate btn-success btn" %>
+	  <%= f.association :location, required: true,
+                                 label: false,
+                                 collection: Location.city(training.city),
+                                 select: training.location,
+                                 label_method: :select_label,
+                                 prompt: 'Choisissez un lieu de départ' %>
+	  <%= f.input :public_description, label: false,
+                                     required: true,
+                                     placeholder: 'Saisissez une description publique' %>
+	  <%= f.input :private_description, label: false,
+                                      required: true,
+                                      placeholder: 'Saisissez une description visible uniquement des inscrits' %>
+	  <%= f.button :submit, "Ajouter le lieu départ", class: "btn btn-success" %>
 	<% end %>
 </div>
