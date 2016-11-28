@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_filter :store_current_location, unless: :devise_controller?
   before_filter :set_tickets_package_for_order
   include Pundit
 
@@ -20,5 +21,9 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :photo])
+  end
+
+  def store_current_location
+    store_location_for(:user, request.url)
   end
 end
