@@ -7,32 +7,32 @@
         <p class="text-center">A quel entrainement souhaitez-vous vous inscrire ?</p>
       </div>
       <div class="modal-body flex-content space-around trainings">
-        <% if current_user %>
-          <ul class="trainings">
-          <% @next_trainings.each do |training| %>
-            <li id="training-<%= training.id %>">
-              <div class="training">
-                <p><%= l(training.date, format: '%A %d %B à %Hh%M') %></p>
-                <% if training.location %>
-                  <div class="location">
-                    <%= cl_image_tag training.location.photo.path, width: 80, height: 80, crop: :fill, class: "avatar-large" %>
-                    <div class="location-info">
-                      <span><strong><%= training.location.name %></strong></span>
-                      <span><%= training.location.address %></span>
-                    </div>
+        <ul class="trainings">
+        <% @next_trainings.each do |training| %>
+          <li id="training-<%= training.id %>">
+            <div class="training">
+              <p><%= l(training.date, format: '%A %d %B à %Hh%M') %></p>
+              <% if training.location %>
+                <div class="location">
+                  <%= cl_image_tag training.location.photo.path, width: 80, height: 80, crop: :fill, class: "avatar-large" %>
+                  <div class="location-info">
+                    <span><strong><%= training.location.name %></strong></span>
+                    <span><%= training.location.address %></span>
                   </div>
-                <% end %>
-                <% if @available_trainings.include?(training) %>
-              </div>
-                  <%= link_to "Réserver" , bookings_path(training: training, city: @city), method: :post, remote: true, class: "btn-cta-small", id: "training-#{training.id}" %>
-                <% else %>
-              </div>
-                  <span>Déjà réservé <i class="fa fa-check" aria-hidden="true"></i></span>
-                <% end %>
-            </li>
-          <% end %>
-          </ul>
+                </div>
+              <% end %>
+            </div>
+              <% if user_signed_in? && training.bookings.where(user: current_user).present? %>
+                <span>Déjà réservé <i class="fa fa-check" aria-hidden="true"></i></span>
+              <% elsif user_signed_in? && training.bookings.where(user: current_user).blank? %>
+                <%= link_to "Réserver" , bookings_path(training: training, city: @city), method: :post, remote: true, class: "btn-cta-small", id: "training-#{training.id}" %>
+              <% else %>
+                <%= link_to "Réserver" , bookings_path(training: training, city: @city), method: :post,
+                    class: "btn-cta-small", id: "training-#{training.id}" %>
+              <% end %>
+          </li>
         <% end %>
+        </ul>
       </div>
     </div>
   </div>

@@ -80,6 +80,11 @@
 .form-card input {
   font-size: 15px;
 }
+
+.form-card input[type="submit"] {
+  margin-top: 15px;
+}
+
 .form-card input[type="email"], input[type="password"] {
   border: 1px solid #E5E5E5;
   box-shadow: none;
@@ -95,12 +100,13 @@
 
 .form-card .btn {
   width: 100%;
-  margin: 15px 0;
+  margin: 0 0 15px 0;
   line-height: 32px;
 }
 .form-card .linkedin {
   display: block;
-  height: 40px;
+  height: 46px;
+  margin-bottom: 15px;
 }
 
 .form-card #linkedin-button {
@@ -141,6 +147,7 @@
     margin: 15px 0;
     padding: 8px 25px;
     line-height: 32px;
+    font-family: $header-font;
   }
   .btn-success{
     background-color: $brand-color;

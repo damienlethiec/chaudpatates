@@ -8,9 +8,7 @@ class CitiesController < ApplicationController
 		set_city
 		set_next_trainings
 		set_next_training
-		set_available_trainings
 		set_city_members
-		next_training_booked?
 		create_hash_location
 	end
 
@@ -21,20 +19,8 @@ class CitiesController < ApplicationController
 		authorize @city
 	end
 
-	def next_training_booked?
-		if current_user
-			@next_training_booked = @next_training.booked_by?(current_user)
-		end
-	end
-
 	def set_next_trainings
 		@next_trainings = @city.next_trainings(4)
-	end
-
-	def set_available_trainings
-		if current_user
-			@available_trainings = @city.trainings_not_booked_by(current_user)
-		end
 	end
 
 	def set_next_training
