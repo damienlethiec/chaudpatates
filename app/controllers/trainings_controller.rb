@@ -41,8 +41,7 @@ class TrainingsController < ApplicationController
   end
 
 	def destroy
-		if @training.bookings.empty?
-      @training.destroy
+    if @training.destroy
       flash[:notice] = "Cet entrainement a bien été annulé"
     else
     	flash[:alert] = "Des utilisateurs se sont déjà inscrits à cet entrainement, vous ne pouvez plus l'annuler"

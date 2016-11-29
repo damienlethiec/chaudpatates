@@ -17,7 +17,7 @@ class Training < ApplicationRecord
 
   has_attachment :photo
 
-  before_destroy :notify_user_of_cancellation
+  before_destroy :notify_user_for_cancellation, prepend: true
 
   def booked_by?(user)
     user.bookings.each do |booking|
@@ -35,6 +35,12 @@ class Training < ApplicationRecord
     errors.add(:date, 'Merci de sélectionner une date dans le futur')
   end
 
+  def members
+    members = []
+    self.bookings.each { |booking| members << booking.user }
+    return members
+  end
+
   # def date_has_to_be_in_session
   # 	sessions_day = []
   # 	city.sessions.each { |session| sessions_day << session.day }
@@ -46,7 +52,7 @@ class Training < ApplicationRecord
     "#{self.date}, #{self.city.name}"
   end
 
-  def notify_user_of_cancellation
+  def notify_user_for_cancellation
     TrainingMailer.cancellation(self).deliver_now
   end
 end

@@ -41,6 +41,7 @@ class BookingsController < ApplicationController
 	def destroy
 		if @booking.destroy
 			current_user.tickets_nb += 1
+			current_user.save
       flash[:notice] = "Votre inscription a bien été annulé"
       redirect_to(bookings_path)
     else
