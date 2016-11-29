@@ -1,5 +1,12 @@
-<% unless current_user.tickets_nb == 0 %>
+<% unless @tickets_before_booking == 0 %>
 	$("#training-<%= @training.id %>").replaceWith("<%= j render 'booked_training', training: @training %>");
+  // Add avatar in the city members listing
+  $(".members-listing").prepend("<%= j render 'users/user_card', city_member: @booking.user %>");
+  $(".section-members ").removeClass('inactive');
+  // Remove one ticket from navbar counter
+  var val = $('.navbar-wagon-item .circle').text();
+  val = parseInt(val, 10) - 1;
+  $('.navbar-wagon-item .circle').text(val);
 <% else %>
 	$(".stripe-button-el").click();
 <% end %>

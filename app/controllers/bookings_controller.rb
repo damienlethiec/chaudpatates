@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
 		authorize @booking
 		if current_user.tickets_nb > 0
       @booking.notify_customer if @booking.save
+      @tickets_before_booking = current_user.tickets_nb
       current_user.tickets_nb -= 1
       current_user.save
 			respond_to do |format|
@@ -26,6 +27,7 @@ class BookingsController < ApplicationController
         format.js
       end
 		else
+      @tickets_before_booking = 0
 			respond_to do |format|
         format.html {
 					flash[:alert] = "Vous n'avez plus assez de tickets, merci d'en racheter !!"

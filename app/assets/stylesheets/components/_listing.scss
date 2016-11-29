@@ -1,5 +1,13 @@
 .listing{
   margin: 20px 0 30px 0;
+  background-color: white;
+  // padding: 30px 60px 45px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+  // margin-top: 30px;
+  // margin-bottom: 30px;
+  color: #8D8D8D;
+  // font-size: 15px;
+  border-radius: 4px;
 
   form {
     input.form-control {
@@ -58,5 +66,19 @@
     flex-direction: column;
     justify-content: center;
     margin-left: 5px;
+  }
+}
+
+.members-listing {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  .member {
+    margin: 0 15px 15px 15px;
+    text-align: center;
+    p {
+      margin: 0;
+    }
   }
 }
