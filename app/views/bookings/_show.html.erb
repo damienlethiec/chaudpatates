@@ -1,4 +1,4 @@
-<div class="list-card">
+<div class="list-card" id="booking-<%= booking.id %>">
   <div class="event-date">
     <p><%= l(booking.training.date, format: '%A %d %B, à %Hh%M').capitalize %></p>
   </div>
@@ -27,6 +27,6 @@
   <div class="booking-delete">
     <%= link_to "Me désinscrire",
         booking_path(booking),
-        method: :delete, class: "confirm btn btn-danger", data: {confirm: "Souhaitez-vous vraiment vous désinscrire de cet entraînement?"}%>
+        method: :delete, remote: true, class: "confirm btn btn-danger", data: {confirm: "Souhaitez-vous vraiment vous désinscrire de cet entraînement?"}%>
   </div>
 </div>
