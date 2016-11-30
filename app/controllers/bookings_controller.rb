@@ -39,13 +39,24 @@ class BookingsController < ApplicationController
 	end
 
 	def destroy
-		if @booking.destroy
+		if (Time.current < @booking.training.date - 1.day) && @booking.destroy
 			current_user.tickets_nb += 1
 			current_user.save
-      flash[:notice] = "Votre inscription a bien été annulé"
-      redirect_to(bookings_path)
+      respond_to do |format|
+        format.html {
+          flash[:notice] = "Votre inscription a bien été annulé"
+          redirect_to(bookings_path)
+        }
+        format.js
+      end
     else
-      (render :index)
+      respond_to do |format|
+        format.html {
+          flash[:alert] = "Votre inscription à l'entrainement n'a pas été annulé"
+          (render :index)
+        }
+        format.js
+      end
     end
 	end
 

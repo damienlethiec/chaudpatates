@@ -1,0 +1,6 @@
+<% if Time.current < @booking.training.date - 1.day %>
+  // destroy booking
+  $('#booking-<%= @booking.id %>').fadeOut(300, function() { $(this).remove(); });
+<% else %>
+  // afficher message d'erreur
+<% end %>
