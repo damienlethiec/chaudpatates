@@ -10,14 +10,14 @@
     <meta property="og:url" content="<%= yield(:url).presence || "https://www.chaudpatate.org/" %>">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:title"  content="<%= yield(:title).presence || "Chaud Patate" %>">
-    <meta property="og:image" content="<%= yield(:photo).presence || image_path "background_2.jpg" %>">
+    <meta property="og:image" content="<%= yield(:photo).presence || "#{image_path("background_2.jpg")}" %>">
     <meta name="og:description" content="<%= (yield(:description) || "Chaudpatate, le rendez-vous sportif des startupers").squish %>">
     <meta property="og:site_name" content="Chaud Patate">
     <meta name="twitter:site" content="@ChaudPatate75">
     <meta property="twitter:title"  content="<%= yield(:title).presence || "Chaudpatate" %>">
     <meta name="twitter:description" content="<%= (yield(:description) || "Chaudpatate, le rendez-vous sportif des startupers").squish %>">
     <meta name="twitter:creator" content="@ChaudPatate75">
-    <meta property="twitter:image:src" content="<%= yield(:photo).presence || image_path "background_2.jpg" %>">
+    <meta property="twitter:image:src" content="<%= yield(:photo).presence || "#{image_path("background_2.jpg")}" %>">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= favicon_link_tag 'logo.png', type: 'image/png' %>
   </head>

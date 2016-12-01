@@ -1,6 +1,7 @@
 <% if Time.current < @booking.training.date - 1.day %>
   // destroy booking
   $('#booking-<%= @booking.id %>').fadeOut(300, function() { $(this).remove(); });
+  $(".navbar-wagon").replaceWith("<%= j render 'shared/navbar', user: current_user %>");
 <% else %>
   // afficher message d'erreur
 <% end %>
