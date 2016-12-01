@@ -5,6 +5,9 @@
   $(".section-members ").removeClass('inactive');
   $(".navbar-wagon").replaceWith("<%= j render 'shared/navbar', user: current_user %>");
   // Remove one ticket from navbar counter
+  // var val = $('.navbar-wagon-item .circle').text();
+  // val = parseInt(val, 10) - 1;
+  // $('.navbar-wagon-item .circle').text(val);
 <% else %>
 	$(".stripe-button-el").click();
 <% end %>
