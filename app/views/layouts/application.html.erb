@@ -6,16 +6,18 @@
     <%= action_cable_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="<%= (yield(:description) || "").squish %>">
-    <meta property="og:title" content="Chaudpatate, le rendez-vous sportif des startupers">
-    <meta property="og:image" content="<%= image_path "background_2.jpg" %>">
-    <meta property="og:description" content="Chaud Patate te permet de faire du sport tout en rencontrant d'autres startupers !">
+    <meta name="description" content="<%= (yield(:description) || "Chaudpatate, le rendez-vous sportif des startupers").squish %>">
+    <meta property="og:url" content="<%= yield(:url).presence || "https://www.chaudpatate.org/" %>">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title"  content="<%= yield(:title).presence || "Chaud Patate" %>">
+    <meta property="og:image" content="<%= yield(:photo).presence || image_path "background_2.jpg" %>">
+    <meta name="og:description" content="<%= (yield(:description) || "Chaudpatate, le rendez-vous sportif des startupers").squish %>">
     <meta property="og:site_name" content="Chaud Patate">
     <meta name="twitter:site" content="@ChaudPatate75">
-    <meta name="twitter:title" content="Chaudpatate, le rendez-vous sportif des startupers">
-    <meta name="twitter:description" content="Chaud Patate te permet de faire du sport tout en rencontrant d'autres startupers !">
+    <meta property="twitter:title"  content="<%= yield(:title).presence || "Chaudpatate" %>">
+    <meta name="twitter:description" content="<%= (yield(:description) || "Chaudpatate, le rendez-vous sportif des startupers").squish %>">
     <meta name="twitter:creator" content="@ChaudPatate75">
-    <meta name="twitter:image:src" content="background_2.jpg">
+    <meta property="twitter:image:src" content="<%= yield(:photo).presence || image_path "background_2.jpg" %>">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= favicon_link_tag 'logo.png', type: 'image/png' %>
   </head>

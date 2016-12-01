@@ -1,9 +1,17 @@
 <% content_for(:title) do %>
-  Chaud Patate - Faire du sport entre startupers à <% @city.name %>
+  Chaud Patate - <%= @city.name %>
 <% end %>
 
 <% content_for(:description) do %>
-  Chaud Patate à <% @city.name %>. Faites du sport en rencontrant d'autres startupers. Networking sportif.
+  Faites à <%= @city.name %> du sport en rencontrant d'autres startupers. Networking sportif.
+<% end %>
+
+<% content_for(:url) do %>
+  <%= city_url(@city)  %>
+<% end %>
+
+<% content_for(:photo) do %>
+  <%= cl_image_path(@city.photo, height: 300, with: 300, crop: :fill) %>
 <% end %>
 
 <div class="container-fluid bg-grey">
