@@ -30,8 +30,8 @@ kenenisa = User.create!(
   )
 
 paul = User.create!(
-  email: "paul@mail.com",
-  password: "paulpaul",
+  email: "pv.frequencesport@gmail.com",
+  password: "Campolo52!",
   first_name: "Paul",
   last_name: "Voillemin",
   is_coach: true,
@@ -44,12 +44,12 @@ paris = City.create!(
 	photo: Cloudinary::Uploader.upload("https://a4.odistatic.net/images/landingpages/vacation/640x480/paris_640x480.jpg")
 	)
 marseille = City.create!(
-  name: "Marseille",
+  name: "Strasbourg",
   user_id: kenenisa.id,
   photo: Cloudinary::Uploader.upload("http://blog.appartager.com/wp-content/uploads/2016/04/marseille.jpg")
   )
 biarritz = City.create!(
-  name: "Biarritz",
+  name: "Aix-en-provence",
   user_id: usain.id,
   photo: Cloudinary::Uploader.upload("http://www.lycee-hotelier-biarritz.com/ADI/files/fond_ecran/1.jpg")
   )
@@ -92,7 +92,7 @@ belle_mai = Location.create!(
 
 ticket_by_10 = TicketsPackage.create!(
 	sku: "ticket-training-by-10",
-	price: 70,
+	price: 50,
 	tickets_nb: 10
 	)
 

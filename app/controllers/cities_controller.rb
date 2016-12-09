@@ -29,7 +29,7 @@ class CitiesController < ApplicationController
 	end
 
   def set_next_location
-    @next_training.location if @next_training && @next_training.location
+    @next_location = @next_training.location if @next_training && @next_training.location
   end
 
 	def set_city_members
