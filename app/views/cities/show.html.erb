@@ -46,18 +46,18 @@
             <% end %>
           </div>
         </div>
-        <% if @next_training.location && @next_training.public_description %>
+        <% if @next_location && @next_training.public_description %>
           <div class="row">
             <div class="col-xs-12 section-location">
               <h3 class="text-center section-title">Prochain départ</h3>
                 <div class="location-details">
-                  <%= cl_image_tag @next_training.location.photo.path, width: 120, height: 120, crop: :fill, class: "avatar-huge" %>
+                  <%= cl_image_tag @next_location.photo.path, width: 120, height: 120, crop: :fill, class: "avatar-huge" %>
                   <div>
-                    <h4><%= @next_training.location.name %></h4>
+                    <h4><%= @next_location.name %></h4>
                     <p>
                       <a href="#map" class="anchor-map">
                         <i class="fa fa-map-o" aria-hidden="true"></i>
-                        <%= @next_training.location.address %>
+                        <%= @next_location.address %>
                       </a>
                     </p>
                     <p><%= @next_training.public_description %></p>
@@ -78,7 +78,7 @@
               </div>
             </div>
           </div>
-        <% if @next_training.location %>
+        <% if @next_location %>
           <div id="map"></div>
         <% end %>
       </div>

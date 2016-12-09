@@ -8,6 +8,7 @@ class CitiesController < ApplicationController
 		set_city
 		set_next_trainings
 		set_next_training
+    set_next_location
 		set_city_members
 		create_hash_location
 	end
@@ -27,11 +28,16 @@ class CitiesController < ApplicationController
 		@next_training = @city.next_trainings(4).first
 	end
 
+  def set_next_location
+    @next_training.location if @next_training && @next_training.location
+  end
+
 	def set_city_members
 		@city_members = @city.find_city_members
 	end
 
 	def create_hash_location
+    return unless @next_training && @next_training.location
 		@hash_location = Gmaps4rails.build_markers(@next_training.location) do |location, marker|
       marker.lat location.latitude
       marker.lng location.longitude
