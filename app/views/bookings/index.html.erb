@@ -4,9 +4,7 @@
       <div class="listing bookings text-center">
         <h2>Vos entraînements à venir</h2>
         <% if @bookings.empty? %>
-          <div class="booking-card">
-            <p>Vous n'avez pas d'entraînements à venir ! Réservez-en vite !!</p>
-          </div>
+          <p>Vous n'êtes inscrit à aucun entraînement.</p>
           <% if @favorite_city %>
             <%= link_to "S'inscrire à un entrainement", city_path(@favorite_city), class: "btn-success btn btn-lg spaced" %>
           <% end %>

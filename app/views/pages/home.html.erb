@@ -22,11 +22,12 @@
   <div class="row">
     <h2 class="text-center">Villes</h2>
     <div class="cities">
-		<% @cities.each do |city| %>
+    <% @cities.each do |city| %>
+
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
       	<div class='text-deco-none'>
 		  	<%= link_to city_path(city) do %>
-					<div class="city-card" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 50%), url(<%= cl_image_path city.photo.path %>); background-size: cover; background-position: center">
+					<div class="city-card" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 50%), url(<%= cl_image_path city.photo.path, width: 360, crop: :fill %>); background-size: cover; background-position: center">
 					  <h3><%= city.name %></h3>
   				</div>
 		    <% end %>
