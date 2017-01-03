@@ -14,13 +14,17 @@ a {
 	}
 }
 .padded {
-	padding-top: 5em;
-	padding-bottom: 5em;
+	padding-top: 4em;
+	padding-bottom: 4em;
 }
 .justified {
 	text-align: justify;
 }
-
+// Headers
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  font-size: 50%;
+  color: $gray-very-light;
+}
 // Backgrounds
 .bg-black {
 	background: #4a4a4a;
@@ -52,11 +56,12 @@ a {
 .spaced-top {
 	margin-top: 50px;
 }
-
+.large-spaced-bottom {
+  margin-bottom: 60px;
+}
 .green {
 	color: $green;
 }
-
 .flex-content {
 	display: flex;
 	flex-wrap: wrap;

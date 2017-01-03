@@ -16,6 +16,7 @@ $headings-color:          $black;
 // => http://getbootstrap.com/customize/#colors
 $gray-light:			$gray;
 $gray-base:       $black;
+$gray-very-light: lighten($black, 20%);
 $brand-primary:   $blue;
 $brand-success:   $green;
 $brand-info:      $yellow;
