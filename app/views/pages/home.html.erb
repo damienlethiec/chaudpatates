@@ -22,19 +22,87 @@
   <div class="row">
     <h2 class="text-center">Villes</h2>
     <div class="cities">
-    <% @cities.each do |city| %>
-
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      	<div class='text-deco-none'>
-		  	<%= link_to city_path(city) do %>
-					<div class="city-card" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 50%), url(<%= cl_image_path city.photo.path, width: 360, crop: :fill %>); background-size: cover; background-position: center">
-					  <h3><%= city.name %></h3>
-  				</div>
-		    <% end %>
-		    </div>
-  		</div>
-    <% end %>
+      <% @cities.each do |city| %>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        	<div class='text-deco-none'>
+  		  	<%= link_to city_path(city) do %>
+  					<div class="city-card" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 50%), url(<%= cl_image_path city.photo.path, width: 360, crop: :fill %>); background-size: cover; background-position: center">
+  					  <h3><%= city.name %></h3>
+    				</div>
+  		    <% end %>
+  		    </div>
+    		</div>
+      <% end %>
+    </div>
   </div>
+  <div class="row">
+    <h2 class="text-center">Concept</h2>
+    <div class="col-xs-12 col-sm-4 text-center">
+      <%= image_tag("coworking.png", size: "70x70", alt: "Edit Entry") %>
+      <p>
+        Un ou deux entraînements sportifs dans des espaces de co-working et
+        des incubateurs (ou en plein air à proximité)
+      </p>
+    </div>
+    <div class="col-xs-12 col-sm-4 text-center">
+      <%= image_tag("networking.png", size: "70x70", alt: "Edit Entry") %>
+      <p>
+        Interaction avec l’écosystème entrepreneurial
+      </p>
+    </div>
+    <div class="col-xs-12 col-sm-4 text-center">
+      <%= image_tag("talking.png", size: "70x70", alt: "icone experience") %>
+      <p>
+        Partage d’expérience des membres du réseau
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <h2 class="text-center">La méthode</h2>
+    <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+      <p>Des jeux sportifs pour briser la glace</p>
+      <ul>
+        <li>Pitch elevator sportif</li>
+        <li>Nice to meet You</li>
+        <li>You know he is the best in</li>
+        <li>W.I.N to win</li>
+      </u>
+    </div>
+  </div>
+  <div class="row">
+    <h2 class="text-center">Contenu d'une séance</h2>
+    <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+      <ul>
+        <li><strong>19h15</strong>: Accueil des participants</li>
+        <li>
+          <strong>19h30 - 20h30</strong>: Cardio training /
+          renforcement musculaire / jeux d’équipe
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <h2 class="text-center">Informations complémentaires</h2>
+    <div class="col-xs-12 col-sm-4">
+      <p><strong>Durée de la séance</strong><br /> 1 heure</p>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <p><strong>Tarif</strong><br /> 5 euros par personne - Première séance gratuite</p>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <p><strong>Deux niveaux pratiques</strong><br />
+        Patate Douce (débutant) et Patator (sportif aguerri)
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <h2 class="text-center">Le mot du coach Chaud Patate</h2>
+    <div class="col-xs-12 col-sm-2 col-sm-offset-2">
+      <%= image_tag("paul-voillemin.png", size: "100x100", alt: "Edit Entry") %>
+    </div>
+    <div class="col-xs-12 col-sm-6 large-spaced-bottom">
+      <p>Novembre 2015, je rejoins un nouvel espace de co-working où personne ne se connaît encore. Afin de briser la glace, je propose aux résidents un défi sportif de 2 minutes. Tout le monde joue le jeu et en redemande de manière quotidienne. Un bon moyen pour sortir la tête de leur écran, communiquer et bouger. Ces mini défis finissent par devenir des séances d’une heure et depuis, l’histoire continue !</p>
+    </div>
   </div>
 </div>
 <% content_for :after_js do %>
