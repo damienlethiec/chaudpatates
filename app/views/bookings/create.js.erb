@@ -1,7 +1,9 @@
 <% unless @tickets_before_booking == 0 %>
 	$("#training-<%= @training.id %>").replaceWith("<%= j render 'booked_training', training: @training %>");
   // Add avatar in the city members listing
-  $(".members-listing").prepend("<%= j render 'users/user_card', city_member: @booking.user %>");
+  if ( $(".members-listing #member-<%= @booking.user.id %>") === null ) {
+    $(".members-listing").prepend("<%= j render 'users/user_card', city_member: @booking.user %>");
+  }
   $(".section-members ").removeClass('inactive');
   // Remove one ticket from navbar counter
   var val = $('.navbar-wagon-item .circle').text();
