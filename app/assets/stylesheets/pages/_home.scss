@@ -8,7 +8,9 @@ hr {
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 30px;
+  margin: 0;
+  line-height: 31px;
 }
 
 .buttons {
@@ -19,5 +21,39 @@ h2 {
   .btn {
     margin: 5px 10px;
     line-height: 1;
+  }
+}
+
+.bg-image {
+  height: 50vh;
+  min-height: 300px;
+  background-size: cover;
+}
+.bg-image .layer{
+  padding: 8em 0;
+}
+
+#concept img{
+  margin-bottom: 20px;
+}
+#contenu .side-margin {
+  margin-right: 30px;
+  margin-left: 30px;
+}
+#contenu {
+  font-size: 16px;
+  ul li{
+    line-height: 2em;
+  }
+}
+#cities h2 a {
+  text-decoration: none;
+  color: $gray-very-light;
+}
+#mot-du-coach {
+  p {
+    font-size: 16px;
+    line-height: 1.5em;
+    color: #888;
   }
 }

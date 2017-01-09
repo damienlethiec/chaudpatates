@@ -17,12 +17,21 @@ a {
 	padding-top: 4em;
 	padding-bottom: 4em;
 }
+.large-padded {
+  padding-top: 8em;
+  padding-bottom: 8em;
+}
 .justified {
 	text-align: justify;
 }
+.no-gutter > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
+
 // Headers
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-size: 50%;
+  font-size: 20px;
   color: $gray-very-light;
 }
 // Backgrounds
@@ -30,7 +39,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 	background: #4a4a4a;
 }
 .bg-grey {
-	background: #f1f1f1;
+	background: #f5f5f5;
 }
 .bg-blue {
 	background: #00a3e1;
