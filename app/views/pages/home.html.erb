@@ -15,12 +15,18 @@
 <div class="container">
   <div class="row">
     <div class="buttons">
-      <a href="" class="btn btn-gray">Découvrir notre concept</a>
+      <a href="#concept" id="concept-button" class="btn btn-gray">Découvrir notre concept</a>
       <%= link_to "Devenir membre", new_user_session_path, class: "btn btn-green" %>
     </div>
   </div>
-  <div class="row">
-    <h2 class="text-center">Villes<br /><small>Où trouver Chaud Patate</small></h2>
+  <div class="row" id="cities">
+    <h2 class="text-center spaced-bottom spaced-top">
+      Où trouver Chaud Patate ?<br />
+      <small>
+        Pour ouvrir des sessions dans votre ville&nbsp;&nbsp;&nbsp;
+        <a href="mailto:contact@chaudpatate.org">contact@chaudpatate.org</href>
+      </small>
+    </h2>
     <div class="cities">
       <% @cities.each do |city| %>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
@@ -43,7 +49,7 @@
         Concept<br /><small>Le rendez-vous sportif des startupers et des entrepreneurs</small>
       </h2>
       <div class="col-xs-12 col-sm-3 text-center">
-        <%= image_tag("coworking.png", size: "50x50", alt: "Edit Entry", class: "brand-colored") %>
+        <%= image_tag("cardio-icon.png", size: "40x40", alt: "Edit Entry", class: "brand-colored") %>
         <p>
           Séance comportant cardio-training, renforcement musculaire et sport d’équipe.
         </p>
@@ -98,11 +104,9 @@
       <div class="side-margin">
         <h2 class="spaced-top spaced-bottom">Contenu d'une séance</h2>
         <ul>
-          <li><strong>19h15</strong>: Accueil des participants</li>
-          <li>
-            <strong>19h30 - 20h30</strong>: Cardio training /
-            renforcement musculaire / jeux d’équipe
-          </li>
+          <li>Accueil des participants (15min avant la séance)</li>
+          <li>Séance d'entraînement d’une heure</li>
+          <li>Pour finir avec un petit rafraichissement</li>
         </ul>
       </div>
     </div>
@@ -112,12 +116,12 @@
       <div class="side-margin">
         <h2 class="spaced-top spaced-bottom">Informations complémentaires</h2>
         <ul>
-          <li><strong>Durée de la séance</strong> 1 heure</li>
-          <li><strong>Tarif</strong> 1ère séance gratuite puis 5€/pers par
+          <li><strong>Durée de la séance:</strong> 1 heure</li>
+          <li><strong>Tarif:</strong> 1ère séance gratuite puis 5€/pers par
           séance sous forme de carnet de 10 séances.</li>
-          <li><strong>Deux niveaux pratiques</strong>
+          <li><strong>Deux niveaux de pratiques:</strong>
           Patate Douce (débutant) et Patator (confirmé)</li>
-          <li><strong>Bonus</strong> Rafraîchissement offert par la structure d’accueil.</li>
+          <li><strong>Bonus:</strong> Rafraîchissement offert par la structure d’accueil.</li>
         </ul>
       </div>
     </div>
@@ -127,15 +131,15 @@
     </div>
   </div>
 </div>
-<div class="container padded">
+<div class="container-fluid large-padded bg-grey" id="mot-du-coach">
   <div class="row">
-    <h2 class="text-center spaced-bottom">
+    <div class="col-xs-12 col-sm-3 col-sm-offset-2 text-center spaced-bottom">
+      <%= image_tag("paul-voillemin.jpg", size: "200x200", alt: "Edit Entry", class: "avatar-portrait") %>
+    </div>
+    <h2 class="col-xs-12 col-sm-5 text-left spaced-bottom">
       Le mot de Paul Voillemin<br /><small>Coach et fondateur de Chaud Patate</small>
     </h2>
-    <div class="col-xs-12 col-sm-2 col-sm-offset-2 text-right">
-      <%= image_tag("paul-voillemin.jpg", size: "150x150", alt: "Edit Entry", class: "avatar-portrait") %>
-    </div>
-    <div class="col-xs-12 col-sm-6 large-spaced-bottom">
+    <div class="col-xs-12 col-sm-5">
       <p>Novembre 2015, je rejoins un nouvel espace de coworking où personne ne se connaît encore. Afin de briser la glace, je propose aux résidents un défi sportif de 2 minutes. Tout le monde joue le jeu et en redemande de manière quotidienne. Un bon moyen pour sortir la tête de leur écran, communiquer et bouger. Ces mini défis finissent par devenir des séances d’une heure et depuis, l’histoire continue ! Grâce à Chaud Patate tu joins l’utile à l’agréable, tu te maintiens en forme tout en développant ton réseau professionnel. Alors viens te défouler et partager un moment sympa avec nous.
       </p>
     </div>
@@ -144,5 +148,11 @@
 <% content_for :after_js do %>
   <script type="text/javascript">
     $(window).scroll(function(){ $('.dropdown').removeClass("open"); });
+    $(document).on('click', '#concept-button, .anchor', function(event){
+      event.preventDefault();
+      $('html, body').animate({
+          scrollTop: $( $.attr(this, 'href') ).offset().top
+      }, 500);
+    });
   </script>
 <% end %>

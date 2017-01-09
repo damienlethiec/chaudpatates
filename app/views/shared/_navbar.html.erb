@@ -6,6 +6,7 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <a href="#contenu" class="navbar-wagon-link anchor">Présentation</a>
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <a href="#" class="navbar-wagon-link dropdown-toggle" data-toggle="dropdown">Villes</a>
@@ -51,8 +52,8 @@
         </div>
       </div>
     </div>
-    <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
+    <!-- Different navigation if login or not -->
       <% if current_user.is_coach %>
         <%= link_to trainings_path, class: "navbar-wagon-link" do %>
           <i class="fa fa-calendar" aria-hidden="true"></i> Gérer ma ville
