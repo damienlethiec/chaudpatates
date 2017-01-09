@@ -20,6 +20,11 @@ a {
 .justified {
 	text-align: justify;
 }
+.no-gutter > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
+
 // Headers
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-size: 50%;
