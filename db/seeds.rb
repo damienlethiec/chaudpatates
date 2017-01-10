@@ -43,15 +43,15 @@ paris = City.create!(
 	user_id: paul.id,
 	photo: Cloudinary::Uploader.upload("https://a4.odistatic.net/images/landingpages/vacation/640x480/paris_640x480.jpg")
 	)
-marseille = City.create!(
+strasbourg = City.create!(
   name: "Strasbourg",
   user_id: kenenisa.id,
-  photo: Cloudinary::Uploader.upload("http://blog.appartager.com/wp-content/uploads/2016/04/marseille.jpg")
+  photo: Cloudinary::Uploader.upload("http://www.tourisme-alsace.com/medias/Photos/reportages/MD_Alsace-0002.jpg")
   )
-biarritz = City.create!(
+aix = City.create!(
   name: "Aix-en-provence",
   user_id: usain.id,
-  photo: Cloudinary::Uploader.upload("http://www.lycee-hotelier-biarritz.com/ADI/files/fond_ecran/1.jpg")
+  photo: Cloudinary::Uploader.upload("https://www.sixt.fr/fileadmin/user_upload/pictures-city-page/aix-en-provence.jpg")
   )
 
 tuesday_session = Session.create!(
@@ -69,13 +69,13 @@ friday_session = Session.create!(
 wednesday_session = Session.create!(
   day: 2,
   time_of_day: Time.new(2016, 10, 31, 19, 0, 0, "+02:00").strftime("%H:%M:%S"),
-  city_id: marseille.id
+  city_id: strasbourg.id
   )
 
 thursday_session = Session.create!(
   day: 3,
   time_of_day: Time.new(2016, 10, 31, 19, 0, 0, "+02:00").strftime("%H:%M:%S"),
-  city_id: biarritz.id
+  city_id: aix.id
   )
 
 le_wagon = Location.create!(
