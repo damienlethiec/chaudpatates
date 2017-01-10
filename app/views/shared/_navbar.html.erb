@@ -13,33 +13,24 @@
         <div class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu dropdown-cities">
           <div class="dropdown-cities-container">
             <ul class="">
-              <li><h4>Nord-Ouest</h4></li>
-              <li><a href="#">Paris</a></li>
-              <li><a href="#">Marseille</a></li>
-              <li><a href="#">Lyon</a></li>
-              <li><a href="#">Lille</a></li>
-              <li><a href="#">Nantes</a></li>
-              <li><a href="#">Toulouse</a></li>
+              <!--  <li><h4>Nord-Ouest</h4></li> -->
+              <% City.all.each do |city| %>
+                <li><%= link_to city.name, city_path(city) %></li>
+              <% end %>
             </ul>
             <ul class="">
-              <li><h4>Nord-Est</h4></li>
-              <li><a href="#">Paris</a></li>
-              <li><a href="#">Marseille</a></li>
-              <li><a href="#">Lyon</a></li>
-              <li><a href="#">Lille</a></li>
-              <li><a href="#">Nantes</a></li>
-              <li><a href="#">Toulouse</a></li>
+              <!-- <li><h4>Sud-Est</h4></li> -->
+              <li><a href="#" class="unactive">Nantes</a></li>
+              <li><a href="#" class="unactive">Marseille</a></li>
+              <li><a href="#" class="unactive">Lyon</a></li>
             </ul>
             <ul class="">
-              <li><h4>Sud-Est</h4></li>
-              <li><a href="#">Paris</a></li>
-              <li><a href="#">Marseille</a></li>
-              <li><a href="#">Lyon</a></li>
-              <li><a href="#">Lille</a></li>
-              <li><a href="#">Nantes</a></li>
-              <li><a href="#">Toulouse</a></li>
+              <!-- <li><h4>Sud-Est</h4></li> -->
+              <li><a href="#" class="unactive">Toulouse</a></li>
+              <li><a href="#" class="unactive">Lille</a></li>
+              <li><a href="#" class="unactive">Nice</a></li>
             </ul>
-            <ul class="">
+           <!--  <ul class="">
               <li><h4>Sud-Ouest</h4></li>
               <li><a href="#">Paris</a></li>
               <li><a href="#">Marseille</a></li>
@@ -47,7 +38,7 @@
               <li><a href="#">Lille</a></li>
               <li><a href="#">Nantes</a></li>
               <li><a href="#">Toulouse</a></li>
-            </ul>
+            </ul> -->
           </div>
         </div>
       </div>
