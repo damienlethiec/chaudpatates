@@ -25,7 +25,7 @@ class CitiesController < ApplicationController
 	end
 
 	def set_next_training
-		@next_training = @city.next_trainings(4).first
+		@next_training = @city.next_trainings(1)
 	end
 
   def set_next_location

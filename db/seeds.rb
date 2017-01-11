@@ -55,13 +55,13 @@ aix = City.create!(
   )
 
 paris_first_session = Session.create!(
-	day: 1,
+	day: 0,
 	time_of_day: Time.new(2017, 01, 16, 19, 30, 0, "+02:00").strftime("%H:%M:%S"),
 	city_id: paris.id
 	)
 
 paris_second_session = Session.create!(
-	day: 3,
+	day: 2,
 	time_of_day: Time.new(2017, 10, 18, 19, 30, 0, "+02:00").strftime("%H:%M:%S"),
 	city_id: paris.id
 	)
