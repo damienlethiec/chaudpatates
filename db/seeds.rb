@@ -54,29 +54,29 @@ aix = City.create!(
   photo: Cloudinary::Uploader.upload("https://www.sixt.fr/fileadmin/user_upload/pictures-city-page/aix-en-provence.jpg")
   )
 
-tuesday_session = Session.create!(
+paris_first_session = Session.create!(
 	day: 1,
-	time_of_day: Time.new(2016, 10, 31, 19, 0, 0, "+02:00").strftime("%H:%M:%S"),
+	time_of_day: Time.new(2017, 01, 16, 19, 30, 0, "+02:00").strftime("%H:%M:%S"),
 	city_id: paris.id
 	)
 
-friday_session = Session.create!(
-	day: 4,
-	time_of_day: Time.new(2016, 10, 31, 19, 0, 0, "+02:00").strftime("%H:%M:%S"),
+paris_second_session = Session.create!(
+	day: 3,
+	time_of_day: Time.new(2017, 10, 18, 19, 30, 0, "+02:00").strftime("%H:%M:%S"),
 	city_id: paris.id
 	)
 
-wednesday_session = Session.create!(
-  day: 2,
-  time_of_day: Time.new(2016, 10, 31, 19, 0, 0, "+02:00").strftime("%H:%M:%S"),
-  city_id: strasbourg.id
-  )
+# wednesday_session = Session.create!(
+#   day: 2,
+#   time_of_day: Time.new(2017, 10, 31, 19, 0, 0, "+02:00").strftime("%H:%M:%S"),
+#   city_id: strasbourg.id
+#   )
 
-thursday_session = Session.create!(
-  day: 3,
-  time_of_day: Time.new(2016, 10, 31, 19, 0, 0, "+02:00").strftime("%H:%M:%S"),
-  city_id: aix.id
-  )
+# thursday_session = Session.create!(
+#   day: 3,
+#   time_of_day: Time.new(2017, 10, 31, 19, 0, 0, "+02:00").strftime("%H:%M:%S"),
+#   city_id: aix.id
+#   )
 
 le_wagon = Location.create!(
 	name: "Le Wagon",

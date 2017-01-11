@@ -28,12 +28,12 @@
       </small>
     </h2>
     <div class="cities">
-      <% @cities.each do |city| %>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+      <% unless @cities.empty? %>
+        <div class="col-xs-12 col-sm-6 col-sm-offset-4 col-lg-4">
         	<div class='text-deco-none'>
-  		  	<%= link_to city_path(city) do %>
-  					<div class="city-card" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 50%), url(<%= cl_image_path city.photo.path, width: 360, crop: :fill %>); background-size: cover; background-position: center">
-  					  <h3><%= city.name %></h3>
+  		  	<%= link_to city_path(@cities.first) do %>
+  					<div class="city-card" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 50%), url(<%= cl_image_path @cities.first.photo.path, width: 360, crop: :fill %>); background-size: cover; background-position: center">
+  					 <h3><%= @cities.first.name %></h3>
     				</div>
   		    <% end %>
   		    </div>
