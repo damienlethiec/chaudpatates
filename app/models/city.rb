@@ -13,7 +13,8 @@ class City < ApplicationRecord
   has_attachment :photo
 
   def next_trainings(number)
-    Training.includes(:location).upcoming.city(self).order(:date).first(number)
+    r = Training.includes(:location).upcoming.city(self).order(:date).first(number)
+    r.length == 1 ? r.first : r
   end
 
   def find_city_members
