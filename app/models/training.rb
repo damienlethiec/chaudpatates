@@ -5,8 +5,8 @@ class Training < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   validates :city_id, :date, presence: true
-  validates :location, :public_description, :private_description, presence: true, on: :update
-  validates :public_description, :private_description, length: { minimum: 140 }, on: :update
+  #validates :location, :public_description, :private_description, presence: true, on: :update
+  #validates :public_description, :private_description, length: { minimum: 140 }, on: :update
   validate :date_cannot_be_in_the_past, on: :create
   # validate :date_has_to_be_in_session
 

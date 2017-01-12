@@ -26,4 +26,8 @@ class ApplicationController < ActionController::Base
   def store_current_location
     store_location_for(:user, request.url)
   end
+
+  # def set_admin_timezone
+  #   Time.zone = 'Paris'
+  # end
 end

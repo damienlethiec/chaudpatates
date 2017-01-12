@@ -15,6 +15,7 @@ ActiveAdmin.register Session do
   show do
     attributes_table do
       row :id
+      row :city
       row :day
       row :time_of_day do |r|
         r.time_of_day.strftime('%H:%M')
@@ -27,6 +28,7 @@ ActiveAdmin.register Session do
 	index do
     selectable_column
     column :id
+    column :city
     column :day
     column :time_of_day do |r|
     	r.time_of_day.strftime('%H:%M')
