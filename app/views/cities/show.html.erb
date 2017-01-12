@@ -40,7 +40,7 @@
             <% if current_user %>
               <% unless current_user.bookings.upcoming.empty? %>
                 <div class="alert alert-warning">
-                  <strong><%= current_user.first_name %></strong>, vous êtes inscrits aux sessions de Lyon <%= link_to "Voir mes sessions", bookings_path, class: "btn btn-cta-small" %>
+                  <strong><%= current_user.first_name %></strong>, vous êtes inscrits aux sessions de <%= @city.name %> <%= link_to "Voir mes sessions", bookings_path, class: "btn btn-cta-small" %>
                 </div>
               <% end %>
             <% end %>
