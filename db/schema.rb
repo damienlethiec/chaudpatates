@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026140211) do
+ActiveRecord::Schema.define(version: 20170112001249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,10 +84,10 @@ ActiveRecord::Schema.define(version: 20161026140211) do
 
   create_table "sessions", force: :cascade do |t|
     t.integer  "day"
-    t.time     "time_of_day"
     t.integer  "city_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.time     "time_of_day"
     t.index ["city_id"], name: "index_sessions_on_city_id", using: :btree
   end
 
