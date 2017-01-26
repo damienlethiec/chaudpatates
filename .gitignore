@@ -8,3 +8,10 @@ public/assets
 
 # Ignore application configuration
 /config/application.yml
+AddTrustExternalCARoot.crt
+COMODORSAAddTrustCA.crt
+COMODORSAExtendedValidationSecureServerCA.crt
+server.csr
+server.key
+server.pass.key
+www_chaudpatate_org.crt
