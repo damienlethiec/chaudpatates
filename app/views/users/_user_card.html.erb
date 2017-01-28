@@ -7,7 +7,7 @@
     <% if city_member.photo.nil? %>
       <%= image_tag city_member.linkedin_picture_url, width: 80, height: 80, crop: :fill,  class: "avatar-big"%>
     <% else %>
-      <%= cl_image_tag city_member.photo.path, width: 160, height: 160, crop: :fill; secure: true, class: "avatar-big"%>
+      <%= cl_image_tag city_member.photo.path, width: 160, height: 160, crop: :fill, secure: true; class: "avatar-big"%>
     <% end %>
   <% else %>
     <%= image_tag "https://res.cloudinary.com/ind-pendant/image/upload/v1478766698/user_mkbsoj.png", width: 80, height: 80, crop: :fill, class: "avatar-big" %>
