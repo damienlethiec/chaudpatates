@@ -15,3 +15,4 @@ server.csr
 server.key
 server.pass.key
 www_chaudpatate_org.crt
+heroku_ssl.pem
