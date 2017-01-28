@@ -24,6 +24,7 @@ gem 'sinatra', ">= 2.0.0.beta2", require: false
 gem 'money-rails'
 gem 'stripe'
 gem "gmaps4rails"
+gem 'rack-canonical-host'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
@@ -42,7 +43,7 @@ gem "letter_opener", group: :development
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
-  
+
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
