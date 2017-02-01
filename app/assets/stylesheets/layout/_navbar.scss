@@ -187,20 +187,11 @@
 }
 
 .navbar-wagon .stripe-button-el{
-  // background-color: $brand-color;
-  // border: none;
-  // color: white;
-  // font-weight: bold;
-  // font-size: 13px;
-  // height: 36px;
-  // line-height: 16px;
-  // border-radius: 4px;
-  // padding: 10px 15px;
   box-shadow: unset;
   padding: 0;
   span {
     padding: 0px 15px;
-    height: 36px;
+    height: 35px;
     line-height: 36px;
     background: $brand-color;
     font-family: $header-font;
@@ -210,5 +201,30 @@
     &:hover {
       background: darken($brand-color, 5%);
     }
+  }
+}
+
+
+@media (max-width: 992px) {
+  .navbar-wagon-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+  .navbar-wagon h5 {
+    font-size: 12px;
+  }
+  .navbar-wagon .circle{
+    height: 24px;
+    width: 24px;
+    // line-height: 24px;
+    font-size: 12px;
+  }
+  .navbar-wagon .stripe-button-el {
+    width: 75px;
+  }
+  .navbar-wagon .dropdown {
+    padding: 10px 0px 10px 14px;
   }
 }
