@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112001249) do
+ActiveRecord::Schema.define(version: 20170327163227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,10 +64,12 @@ ActiveRecord::Schema.define(version: 20170112001249) do
   create_table "locations", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.text     "public_description"
+    t.text     "private_description"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -84,10 +86,10 @@ ActiveRecord::Schema.define(version: 20170112001249) do
 
   create_table "sessions", force: :cascade do |t|
     t.integer  "day"
+    t.time     "time_of_day"
     t.integer  "city_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.time     "time_of_day"
     t.index ["city_id"], name: "index_sessions_on_city_id", using: :btree
   end
 
