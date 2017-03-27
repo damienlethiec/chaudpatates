@@ -43,20 +43,28 @@ paris = City.create!(
 	user_id: paul.id,
 	photo: Cloudinary::Uploader.upload("https://a4.odistatic.net/images/landingpages/vacation/640x480/paris_640x480.jpg")
 	)
-strasbourg = City.create!(
-  name: "Strasbourg",
-  user_id: kenenisa.id,
-  photo: Cloudinary::Uploader.upload("http://www.tourisme-alsace.com/medias/Photos/reportages/MD_Alsace-0002.jpg")
+
+lyon = City.create!(
+  name: "Lyon",
+  user_id: paul.id,
+  photo: Cloudinary::Uploader.upload("https://static.vueling.com/cms/media/1216826/lyon.jpg")
   )
-aix = City.create!(
-  name: "Aix-en-provence",
-  user_id: usain.id,
-  photo: Cloudinary::Uploader.upload("https://www.sixt.fr/fileadmin/user_upload/pictures-city-page/aix-en-provence.jpg")
+
+lyon_first_session = Session.create!(
+  day: 0,
+  time_of_day: Time.new(2017, 05, 16, 19, 30, 0, "+02:00").strftime("%H:%M:%S"),
+  city_id: lyon.id
+  )
+
+lyon_second_session = Session.create!(
+  day: 2,
+  time_of_day: Time.new(2017, 10, 18, 19, 30, 0, "+02:00").strftime("%H:%M:%S"),
+  city_id: lyon.id
   )
 
 paris_first_session = Session.create!(
 	day: 0,
-	time_of_day: Time.new(2017, 01, 16, 19, 30, 0, "+02:00").strftime("%H:%M:%S"),
+	time_of_day: Time.new(2017, 05, 16, 19, 30, 0, "+02:00").strftime("%H:%M:%S"),
 	city_id: paris.id
 	)
 
@@ -65,6 +73,14 @@ paris_second_session = Session.create!(
 	time_of_day: Time.new(2017, 10, 18, 19, 30, 0, "+02:00").strftime("%H:%M:%S"),
 	city_id: paris.id
 	)
+
+training_fake = Training.create!(
+  city_id: lyon.id,
+  public_description: "amazing fake training public",
+  private_description: "amazing fake training private",
+  date: Time.new(2017, 10, 18, 19, 30, 0, "+02:00").strftime("%H:%M:%S")
+  )
+
 
 # wednesday_session = Session.create!(
 #   day: 2,
