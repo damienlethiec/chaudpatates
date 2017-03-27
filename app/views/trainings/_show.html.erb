@@ -21,5 +21,26 @@
         method: :delete, class: "confirm btn btn-danger", data: {confirm: "Souhaitez-vous vraiment supprimer cet entraînement?"}%>
   </div>
 </div>
+<div class="list-card participants-card">
+  <% if training.number_of_participants > 0 %>
+      <div class="event-date">
+      Participants:
+      </div>
+      <ul>
+        <% training.members.each do |member| %>
+          <li class="participant">
+          <% if member.photo %>
+          <%= cl_image_tag training.member.photo.path, width: 50, height: 50, crop: :fill, class: 'avatar-large' %>
+          <% else %>
+          <%= image_tag('no-img.png', width: 50, height: 70, crop: :fill, class: 'avatar-large') %>
+          <% end %>
+          <div class="attendance-name">
+            <%=  member.full_name %>
+          </div>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+</div>
 
 <%= render "update", training: training %>

@@ -117,4 +117,14 @@
       text-transform: uppercase;
     }
   }
+  .list-participants {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
 }
+.participants-card {
+    border-top: none;
+    padding-top: 0px;
+}
+
