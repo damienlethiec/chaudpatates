@@ -10,6 +10,9 @@ class Booking < ApplicationRecord
 	scope :user_is, -> (user) { where(user: user) }
 	scope :training, -> (training) { where( training: training) }
 
+
+  before_destroy :notify_admin_cancellation, prepend: true
+
   def notify_customer
     BookingMailer.booked(self).deliver_now
     if (Time.current + 2.days > training.date)
@@ -18,4 +21,9 @@ class Booking < ApplicationRecord
       BookingMailer.delay_until(training.date - 1.day).upcoming(self)
     end
   end
+
+  def notify_admin_cancellation
+    BookingMailer.cancelled(self).deliver_now
+  end
+
 end

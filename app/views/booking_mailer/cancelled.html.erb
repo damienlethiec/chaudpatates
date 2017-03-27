@@ -1,0 +1,5 @@
+<h1>Bonjour Paul,</h1>
+
+<p>
+  <%= @booking.user.full_name %> vient d'annuler sa séance du <%= l(@booking.training.date, format: '%A %d %B, à %Hh%M')%> à <%= @booking.training.city.name %>
+

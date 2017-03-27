@@ -14,19 +14,19 @@
           <div class="dropdown-cities-container">
             <ul class="">
               <!--  <li><h4>Nord-Ouest</h4></li> -->
-              <% City.all.each do |city| %>
-                <li><%= link_to city.name, city_path(city) %></li>
+              <% City.all.each do |c| %>
+                <li><%= link_to c.name, city_path(c) %></li>
               <% end %>
             </ul>
             <ul class="">
               <!-- <li><h4>Sud-Est</h4></li> -->
               <li><a href="#" class="unactive">Nantes</a></li>
               <li><a href="#" class="unactive">Marseille</a></li>
-              <li><a href="#" class="unactive">Lyon</a></li>
+              <li><a href="#" class="unactive">Toulouse</a></li>
+<!--               <li><a href="#" class="unactive">Lyon</a></li> -->
             </ul>
             <ul class="">
               <!-- <li><h4>Sud-Est</h4></li> -->
-              <li><a href="#" class="unactive">Toulouse</a></li>
               <li><a href="#" class="unactive">Lille</a></li>
               <li><a href="#" class="unactive">Nice</a></li>
             </ul>
