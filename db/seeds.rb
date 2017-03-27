@@ -74,6 +74,13 @@ paris_second_session = Session.create!(
 	city_id: paris.id
 	)
 
+training_fake = Training.create!(
+  city_id: lyon.id,
+  public_description: "amazing fake training public",
+  private_description: "amazing fake training private",
+  date: Time.new(2017, 10, 18, 19, 30, 0, "+02:00").strftime("%H:%M:%S")
+  )
+
 
 # wednesday_session = Session.create!(
 #   day: 2,
