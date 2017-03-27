@@ -24,6 +24,6 @@ class BookingMailer < ApplicationMailer
 
   def cancelled(booking)
     @booking = booking
-    mail(to: 'juliette.engel@skema.edu', subject: "#{@booking.user.full_name} a annulé sa séance")
+    mail(to: 'paul.voillemin@gmail.com', subject: "#{@booking.user.full_name} a annulé sa séance")
   end
 end
